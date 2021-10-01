@@ -1,0 +1,55 @@
+body {
+    background-color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.holder {
+    border: solid 3px red;
+    display: flex;
+    flex-flow: row wrap;
+}   
+
+.img_holder, .intro, .industry, .sport{
+    box-sizing: border-box;
+    border: solid 2px blue;
+    width: 50%;
+}
+
+.famous-people {
+    box-sizing: border-box;
+    border: solid 2px blue;
+    width: 100%;
+}
+
+
+.main_img {
+    max-width: 100%;
+}
+
+
+@media (max-width: 780px) {
+    body {
+        background-color: lightblue;
+    } 
+
+    .img_holder, .intro, .industry, .sport, .famous-people {
+        box-sizing: border-box;
+        border: solid 3px blue;
+        margin: 10px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-color: lightgray;
+    }         
+
+    .img_holder, .intro, .industry, .sport, .famous-people {
+        border: solid 3px green;
+        padding: 10px;
+        margin: 10px;
+        width: 100%;
+    }
+
+}
