@@ -1,0 +1,71 @@
+h1,h2,h3{
+  font-family:Arial;
+}
+
+a{
+  	color:red;
+  	text-decoration:none;
+}
+.header{
+    margin:10px;
+  	background-color:red;
+  	padding:20px;
+  	border-radius:10px;
+  	border:1px solid;
+  	text-align:center;
+}
+header div a{
+      color:white;
+}
+
+.logo{
+  float:left;
+}
+.main-content{
+  	margin:10px;
+  	border:1px solid;
+  	padding:20px;
+  	border-radius:10px;
+  	overflow:auto;
+}
+
+
+#news{
+    width:75%;
+    float:left;
+    border: 1px solid;
+    margin:10px;
+    padding:20px;
+}
+#news2{
+    width:75%;
+    float:right;
+    border: 1px solid;
+    margin:10px;
+    padding:20px;
+}
+#news3{
+    width:75%;
+    float:left;
+    border: 1px solid;
+    margin:10px;
+    padding:20px;
+}
+#news4{
+  width:75%;
+  float:right;
+  border: 1px solid;
+  margin:10px;
+  padding:20px;
+}
+.footer {
+  background-color: red;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.footer a{
+  color: white;
+}
