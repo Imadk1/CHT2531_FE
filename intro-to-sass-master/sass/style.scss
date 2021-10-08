@@ -1,7 +1,7 @@
 @use 'variables';
 
 body {
-  background-color: variables.$off-white;
+  background-color: variables.$white;
   font-family: variables.$body;
   font-weight: 500;
   line-height: 1.8em;
@@ -12,7 +12,8 @@ body {
   padding: 20px;
   margin: 40px;
   background-color: variables.$off-white;
-  border: 1px solid variables.$light-grey;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
   &__heading{
     color: variables.$sky-blue;
@@ -41,9 +42,9 @@ body {
     text-decoration: none;
     color: variables.$sky-blue;
     font-weight: bold;
-  }
 
-  &__link:hover {
-    color: variables.$rose-red;
+    &:hover{
+      color: variables.$blue;
+    }
   }
 }

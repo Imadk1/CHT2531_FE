@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Open+Sans&display=swap");
 /* Typography */
 body {
-  background-color: #F9FAFB;
+  background-color: #ffffff;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   line-height: 1.8em;
@@ -13,8 +13,9 @@ body {
 .card {
   padding: 20px;
   margin: 40px;
-  background-color: #F9FAFB;
-  border: 1px solid #868888;
+  background-color: #F7F7F7;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .card__heading {
   color: #33A9D7;
@@ -33,7 +34,7 @@ body {
 .reference {
   padding: 10px;
   margin: 20px;
-  border-top: 1px solid #868888;
+  border-top: 1px solid #E6E6E6;
   text-align: center;
 }
 .reference__link {
@@ -42,7 +43,7 @@ body {
   font-weight: bold;
 }
 .reference__link:hover {
-  color: #D7333B;
+  color: #2286AE;
 }
 
 /*# sourceMappingURL=style.css.map */
