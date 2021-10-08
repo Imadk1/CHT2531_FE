@@ -1,0 +1,46 @@
+@use 'variables';
+
+body {
+  color: variables.$dark-grey;
+  background-color: variables.$off-white;
+  font-family: variables.$body;
+  font-weight: 500;
+  line-height: 1.8em;
+  font-size: 0.8em;
+}
+
+.card {
+  padding: 20px;
+  margin: 40px;
+  background-color: variables.$off-white;
+  border: 1px solid variables.$light-grey;
+
+  &__heading{
+    color: variables.$sky-blue;
+    font-family: variables.$heading;
+    font-size: 3.0em;
+  }
+
+  &__sub-heading {
+    color: variables.$sky-blue;
+    font-family: variables.$heading;
+    font-size: 2.0em;
+  }
+
+  &__content {
+    color: variables.$rose-red;
+  }
+}
+
+.reference {
+  padding: 10px;
+  margin: 40px;
+  border-top: 1px solid variables.$light-grey;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: variables.$sky-blue;
+    font-weight: bold;
+  }
+}

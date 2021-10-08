@@ -1,0 +1,46 @@
+/* Colours */
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Open+Sans&display=swap");
+/* Typography */
+body {
+  color: #606162;
+  background-color: #F9FAFB;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  line-height: 1.8em;
+  font-size: 0.8em;
+}
+
+.card {
+  padding: 20px;
+  margin: 40px;
+  background-color: #F9FAFB;
+  border: 1px solid #868888;
+}
+.card__heading {
+  color: #33A9D7;
+  font-family: "Open-Sans", sans-serif;
+  font-size: 3em;
+}
+.card__sub-heading {
+  color: #33A9D7;
+  font-family: "Open-Sans", sans-serif;
+  font-size: 2em;
+}
+.card__content {
+  color: #D7333B;
+}
+
+.reference {
+  padding: 10px;
+  margin: 40px;
+  border-top: 1px solid #868888;
+  text-align: center;
+}
+.reference a {
+  text-decoration: none;
+  color: #33A9D7;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style.css.map */
