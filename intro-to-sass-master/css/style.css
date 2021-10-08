@@ -3,7 +3,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Open+Sans&display=swap");
 /* Typography */
 body {
-  color: #606162;
   background-color: #F9FAFB;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
@@ -28,19 +27,22 @@ body {
   font-size: 2em;
 }
 .card__content {
-  color: #D7333B;
+  color: #606162;
 }
 
 .reference {
   padding: 10px;
-  margin: 40px;
+  margin: 20px;
   border-top: 1px solid #868888;
   text-align: center;
 }
-.reference a {
+.reference__link {
   text-decoration: none;
   color: #33A9D7;
   font-weight: bold;
+}
+.reference__link:hover {
+  color: #D7333B;
 }
 
 /*# sourceMappingURL=style.css.map */

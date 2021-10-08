@@ -1,7 +1,6 @@
 @use 'variables';
 
 body {
-  color: variables.$dark-grey;
   background-color: variables.$off-white;
   font-family: variables.$body;
   font-weight: 500;
@@ -28,19 +27,23 @@ body {
   }
 
   &__content {
-    color: variables.$rose-red;
+    color: variables.$dark-grey;
   }
 }
 
 .reference {
   padding: 10px;
-  margin: 40px;
+  margin: 20px;
   border-top: 1px solid variables.$light-grey;
   text-align: center;
 
-  a {
+  &__link {
     text-decoration: none;
     color: variables.$sky-blue;
     font-weight: bold;
+  }
+
+  &__link:hover {
+    color: variables.$rose-red;
   }
 }
