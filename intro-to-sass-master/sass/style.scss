@@ -8,12 +8,13 @@ body {
   font-size: 0.8em;
 }
 
+.container {
+  padding: 20px 150px;
+}
+
 .card {
   padding: 20px;
-  margin: 40px;
-  background-color: variables.$off-white;
   border-radius: 5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
   &__heading{
     color: variables.$sky-blue;
