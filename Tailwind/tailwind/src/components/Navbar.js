@@ -6,7 +6,7 @@ export default function Navbar({ fixed }) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     return ( 
       <>
-         <nav className="flex items-center justify-between flex-wrap bg-blue-500 p-6">
+         <nav className="flex items-center justify-between flex-wrap bg-blue-500 p-4">
             <div className="flex self-start items-center flex-shrink-0 text-white mr-6 ">
                 <img src={logo} className="fill-current mr-2" width="80" height="80" alt="logo" />
                 <Link><span className="font-semibold text-xl tracking-tight">Imad's React App</span></Link>
@@ -25,14 +25,17 @@ export default function Navbar({ fixed }) {
                 (navbarOpen ? "" : " hidden")}  
             >
                 <div className="lg:flex-grow">
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4">
-                        Docs
+                    <a href="#responsive-header" className="block mt-4 mx-4 lg:inline-block lg:mt-0 text-white hover:text-blue-100">
+                        Home
                     </a>
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4">
-                        Examples
+                    <a href="#responsive-header" className="block mt-4 mx-4 lg:inline-block lg:mt-0 text-white hover:text-blue-100">
+                        Something
                     </a>
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white">
-                        Blog
+                    <a href="#responsive-header" className="block mt-4 mx-4 lg:inline-block lg:mt-0 text-white hover:text-blue-100">
+                        About
+                    </a>
+                    <a href="#responsive-header" className="block mt-4 mx-4 lg:inline-block lg:mt-0 text-white hover:text-blue-100">
+                        Contact
                     </a>
                 </div>
             </div>
