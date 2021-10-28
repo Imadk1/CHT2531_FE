@@ -68,3 +68,23 @@
 .nav-active {
     color: $orange;
 }
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.results-title {
+    padding-right: 30px;
+}
+
+.results-rating {
+    color: $off-white;
+    background-color: $orange;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+
