@@ -8,11 +8,11 @@ import './App.css';
 
 function App() {
   return (
-   <Router>
+   <Router forceRefresh={true}>
      <NavBar />
 
      <Switch>
-        <Route exact path="/">
+        <Route forceRefresh={true} exact path="/">
            <Home />
         </Route>
         <Route exact path="/films">

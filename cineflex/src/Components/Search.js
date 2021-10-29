@@ -40,14 +40,14 @@ export const Search = () => {
             </div>
             {results.length > 0 && (
                 <Container>
-                    <Row>
-                        {results.map(searchresults => (
-                        <Col className="my-4" key={searchresults.id}>
-                            <ResultsCard searchresults={searchresults}/>
-                        </Col>
-                    ))}
-                    </Row>    
-                </Container> 
+                   <Row>
+                       {results.map(searchresults => (
+                       <Col className="my-4" key={searchresults.id}>
+                           <ResultsCard searchresults={searchresults}/>
+                       </Col>
+                   ))}
+                   </Row>    
+                </Container>  
             )}
         </div>
         
