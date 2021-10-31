@@ -6,13 +6,12 @@ import { ResultsCard } from './ResultsCard.js';
 export const Search = () => {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
-    const API_KEY = "5f341eaa0aa02576b669b37838e5126c";
     const onChange = e => {
         e.preventDefault();
 
         setQuery(e.target.value);
 
-        fetch(`https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=en-US&page=1&query=${e.target.value}`
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=falsw&query=${e.target.value}`
         )
         .then((res) => res.json())
         .then((data) => {
@@ -25,6 +24,7 @@ export const Search = () => {
     }
     return (
         <div>
+            <Container>
             <div className="row height d-flex justify-content-center align-items-center">
                 <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 my-4">
                     <div className="search"> <i className="fa fa-search"></i> 
@@ -39,7 +39,6 @@ export const Search = () => {
                 </div>
             </div>
             {results.length > 0 && (
-                <Container>
                    <Row>
                        {results.map(searchresults => (
                        <Col className="my-4" key={searchresults.id}>
@@ -47,8 +46,8 @@ export const Search = () => {
                        </Col>
                    ))}
                    </Row>    
-                </Container>  
             )}
+            </Container>
         </div>
         
         
