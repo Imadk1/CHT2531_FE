@@ -1,10 +1,29 @@
+import Button from '@restart/ui/esm/Button'
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import placeholder from '../Assets/Placeholder.jpg'
 import '../sass/custom.scss'
 
 export const ResultsCard = ({searchresults}) => {    
     return (
-        <Card>
+        <div className="movie-card">
+            {searchresults.poster_path ? (
+                <img className="poster" 
+                src={`https://image.tmdb.org/t/p/w300${searchresults.poster_path}`} 
+                alt= {searchresults.title}
+               />
+            ) : (
+                <img className="poster"
+                 src={placeholder} 
+                 alt= {searchresults.name}
+                />
+            )}
+            <b className="title">{searchresults.title}</b>
+            <span className="rating">
+                {searchresults.vote_average}
+            </span>
+            <Button className="btn btn-secondary">Add to watch list</Button>
+        </div>
+        /*<Card>
             {searchresults.poster_path ? (
                 <Card.Img 
                 src={`https://image.tmdb.org/t/p/w300${searchresults.poster_path}`} 
@@ -25,6 +44,6 @@ export const ResultsCard = ({searchresults}) => {
                     {searchresults.vote_average }
                 </Card.Text>
             </Card.Body>
-        </Card>
+        </Card>*/
     )
 }
