@@ -5,7 +5,6 @@ import { Home } from './Pages/Home';
 import { Trending } from './Pages/Trending';
 import { MostPopular } from './Pages/MostPopular';
 import { Search } from './Pages/Search';
-import './App.css';
 
 function App() {
   return (
