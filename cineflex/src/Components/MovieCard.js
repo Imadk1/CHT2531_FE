@@ -1,28 +1,29 @@
-/*import React from 'react'
+import React from 'react'
 import placeholder from '../Assets/Placeholder.jpg'
-import '../sass/custom.scss'
 import {Button} from 'react-bootstrap'
+import '../sass/custom.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faPlay, faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
 
-export const ResultsCard = ({searchresults}) => {    
+export const MovieCard = ({movieresults}) => {
+    
     return (
         <div className="movie-card">
-            {searchresults.poster_path ? (
+            {movieresults.poster_path ? (
                 <img className="poster" 
-                src={`https://image.tmdb.org/t/p/w300${searchresults.poster_path}`} 
-                alt= {searchresults.title}
+                src={`https://image.tmdb.org/t/p/w300${movieresults.poster_path}`} 
+                alt= {movieresults.title}
                />
             ) : (
                 <img className="poster"
                  src={placeholder} 
-                 alt= {searchresults.name}
+                 alt= {movieresults.title}
                 />
             )}
-            <b className="title">{searchresults.title}</b>
+            <b className="title">{movieresults.title}</b>
             <span className="rating">
                 <FontAwesomeIcon icon={faStar} className="star"/>
-                {searchresults.vote_average}
+                {movieresults.vote_average}
             </span>
             <div className="card-btn">
                 <Button className="btn btn-secondary watch-btn"><FontAwesomeIcon icon={faPlay} /> Watch Trailer</Button>
@@ -33,4 +34,4 @@ export const ResultsCard = ({searchresults}) => {
             </div>
         </div>
     )
-}*/
+}

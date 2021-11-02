@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {NavBar} from './Components/NavBar';
-import { Home } from './Components/Home';
-import { Trending } from './Components/Trending';
-import { MostPopular } from './Components/MostPopular';
-import { Search } from './Components/Search';
+import { Home } from './Pages/Home';
+import { Trending } from './Pages/Trending';
+import { MostPopular } from './Pages/MostPopular';
+import { Search } from './Pages/Search';
 import './App.css';
 
 function App() {

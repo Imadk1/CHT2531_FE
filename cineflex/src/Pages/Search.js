@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert, Col, Container, Row } from 'react-bootstrap';
-import { ResultsCard } from './ResultsCard.js';
+import { MovieCard } from '../Components/MovieCard';
 
-export const Search = (props) => {
+export const Search = () => {
     const [query, setQuery] = useState("");
-    const [results, setResults] = useState([]);
+    const [movies, setMovies] = useState([]);
     const onChange = e => {
         e.preventDefault();
         setQuery(e.target.value);
@@ -18,7 +18,7 @@ export const Search = (props) => {
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
-                setResults(data.results);   
+                setMovies(data.results);   
             }else{
                 <Alert variant="danger">Error</Alert>
             }
@@ -45,12 +45,12 @@ export const Search = (props) => {
                 </div>
             </div>
             </Container>
-            <Container fluid className="search-container">
-                 {results.length > 0 && (
+            <Container fluid className="movie-container">
+                 {movies.length > 0 && (
                    <Row>
-                       {results.map(searchresults => (
-                       <Col className="my-3 movie-grid" key={searchresults.id}>
-                           <ResultsCard searchresults={searchresults}/>
+                       {movies.map(movieresults => (
+                       <Col className="my-4 movie-grid" key={movieresults.id}>
+                           <MovieCard movieresults={movieresults}/>
                        </Col>
                    ))}
                    </Row>    
