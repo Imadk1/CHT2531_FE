@@ -49,10 +49,10 @@ export const Search = () => {
                  {movies.length > 0 && (
                    <Row>
                        {movies.map(movieresults => (
-                       <Col className="my-4 movie-grid" key={movieresults.id}>
-                           <MovieCard movieresults={movieresults}/>
-                       </Col>
-                   ))}
+                        <Col className="my-4 movie-grid" key={movieresults.id}>
+                            <MovieCard movieresults={movieresults}/>
+                        </Col>
+                        ))}
                    </Row>    
             )}
             </Container>
