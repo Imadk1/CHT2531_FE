@@ -9,7 +9,7 @@ export const Trending = () => {
     //const [page, setPage] = useState(1);
     const [movies, setMovies] = useState([]);
 
-    fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false`
+    fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false`
     )
     .then((res) => res.json())
     .then((data) => {
@@ -25,7 +25,7 @@ export const Trending = () => {
             {movies && (
                 <Row>
                    {movies.map(movieresults => (
-                        <Col className="my-4 movie-grid" key={movieresults.id}>
+                        <Col className="movie-grid" key={movieresults.id}>
                             <MovieCard movieresults={movieresults}/>
                         </Col>
                      ))}

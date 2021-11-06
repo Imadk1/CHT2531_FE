@@ -107,10 +107,14 @@
 //Movie Card
 
 .movie-grid {
-    padding: 0 30px;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin: 1.5rem auto;
+
+    @media (max-width: 480px) {
+        margin: 0.5rem auto;
+    }
 }
 
 .movie-card {
@@ -125,75 +129,115 @@
     position: relative;
     font-family: "Montserrat", sans-serif;
     color: $off-white;
-}
 
-.poster {
-   border-radius: 5px;
-}
-
-.title {
-    width: 100%;
-    text-align: center;
-    font-size: 15px;
-    margin: 10px 0;
-    padding: 10px 0;    
-}
-
-.rating {
-    color: $dark-grey;
-    background-color: $light-mint;
-    box-shadow:  
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-    margin: 10px 10px;
-    padding: 5px 5px;
-    border-radius: 5px;
-    width: auto;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    font-weight: 700;
-    padding: 8px;
-
-    .star{
-        margin-right: 5px;
+    @media (max-width: 480px) {
+        flex-direction: row;
+        width: 95vw;
+        padding:10px;
+        height: auto;
     }
-
 }
 
-.card-btn {
+.poster-container {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    margin: 0px 10px 0px 5px;
+    border-radius: 5px;
 
-    .watch-btn {
-        width: 60%;
+    @media (max-width: 480px) {
+        width: 30%;
+        height: auto;
     }
 
-    .icons {
+    .poster {
+        @media (max-width: 480px) {
+            width: 110px;
+            border-radius: 5px;
+        }
+        
+    }
+
+    .rating {
         display: flex;
+        padding: 5px 15px;
         justify-content: center;
         align-items: center;
+        color: $dark-grey;
+        background-color: $orange;
+        box-shadow:  
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+        position: absolute;
+        font-weight: 700;
+        top: 0% !important;
+        left: 85% !important;
+    
+        .star{
+            margin-right: 5px;
+        }
+    
+    }
+}
 
-        .icon-btn {
-            color: $orange;
+.content-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 480px) {
+        width: 70%;
+    }
+    
+    .title {
+        margin: 10px;
+        font-size: 16px;   
+
+        @media (max-width: 480px) {
             font-size: 18px;
-            padding: 10px;
-
-            &:hover {
-                color: $mint;
-            }
         }
     }
     
+    .card-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5px;
+    
+        .watch-btn {
+            width: 120px;
+        }
+    
+        .icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            .icon-btn {
+                color: $orange;
+                font-size: 18px;
+                padding: 10px;
+    
+                &:hover {
+                    color: $mint;
+                }
+            }
+        }
+        
+    }
 }
+
+
 
 // Other styling
 

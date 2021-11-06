@@ -8,7 +8,7 @@ import '../sass/custom.scss';
 export const MostPopular = () => {
     const [movies, setMovies] = useState([]);
 
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
     )
     .then((res) => res.json())
     .then((data) => {
@@ -24,7 +24,7 @@ export const MostPopular = () => {
                 {movies && (
                    <Row>
                        {movies.map(movieresults => (
-                            <Col className="my-4 movie-grid" key={movieresults.id}>
+                            <Col className="movie-grid" key={movieresults.id}>
                                 <MovieCard movieresults={movieresults}/>
                             </Col>
                         ))}

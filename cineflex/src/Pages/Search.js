@@ -13,7 +13,7 @@ export const Search = () => {
     const onSubmit = e => {
         e.preventDefault();
         setQuery(e.target.value);
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=falsw&query=${e.target.value}`
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false&query=${e.target.value}`
         )
         .then((res) => res.json())
         .then((data) => {
@@ -49,7 +49,7 @@ export const Search = () => {
                  {movies.length > 0 && (
                    <Row>
                        {movies.map(movieresults => (
-                        <Col className="my-4 movie-grid" key={movieresults.id}>
+                        <Col className="movie-grid" key={movieresults.id}>
                             <MovieCard movieresults={movieresults}/>
                         </Col>
                         ))}

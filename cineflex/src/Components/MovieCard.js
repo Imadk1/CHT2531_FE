@@ -20,6 +20,11 @@ export const MovieCard = ({movieresults}) => {
 
     return (
         <div className="movie-card">
+            <div className="poster-container">
+                <span className="rating translate-middle rounded-pill">
+                    <FontAwesomeIcon icon={faStar} className="star"/>
+                    {movieresults.vote_average}
+                </span>
             {movieresults.poster_path ? (
                 <img className="poster" 
                 src={`https://image.tmdb.org/t/p/w300${movieresults.poster_path}`} 
@@ -31,16 +36,15 @@ export const MovieCard = ({movieresults}) => {
                  alt= {movieresults.title}
                 />
             )}
-            <b className="title">{movieresults.title}</b>
-            <span className="rating">
-                <FontAwesomeIcon icon={faStar} className="star"/>
-                {movieresults.vote_average}
-            </span>
-            <div className="card-btn">
-                <Button className="btn btn-secondary watch-btn" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
-                <div className="icons">
-                    <a href className="icon-btn"><FontAwesomeIcon icon={faHeart} /> </a>
-                    <a href className="icon-btn"><FontAwesomeIcon icon={faShare} /> </a>
+            </div>
+            <div className="content-container">
+                <b className="title">{movieresults.title}</b>
+                <div className="card-btn">
+                    <Button className="btn btn-secondary watch-btn" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
+                    <div className="icons">
+                        <a href className="icon-btn"><FontAwesomeIcon icon={faHeart} /> </a>
+                        <a href className="icon-btn"><FontAwesomeIcon icon={faShare} /> </a>
+                    </div>
                 </div>
             </div>
         </div>
