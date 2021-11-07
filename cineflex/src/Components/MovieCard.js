@@ -39,6 +39,7 @@ export const MovieCard = ({movieresults}) => {
             </div>
             <div className="content-container">
                 <b className="title">{movieresults.title}</b>
+                <p className="desc">{movieresults.release_date}</p>
                 <div className="card-btn">
                     <Button className="btn btn-secondary watch-btn" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
                     <div className="icons">
