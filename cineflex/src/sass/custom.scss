@@ -202,7 +202,9 @@
     .title {
         margin: 10px;
         font-size: 1rem;   
+    }
 
+    .mobile-text {
         @media (max-width: 480px) {
             text-align: left;
         }
@@ -212,10 +214,6 @@
         font-size: 0.9rem;
         line-height: 1.5em;
         margin: 10px;
-
-        @media (max-width: 480px) {
-            text-align: left;
-        }
     }
     
     .card-btn {
