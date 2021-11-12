@@ -28,7 +28,7 @@ export const Trending = () => {
                         <Col className="movie-grid" key={movieresults.id}>
                             <MovieCard movieresults={movieresults}/>
                         </Col>
-                     ))}
+                    ))}
                 </Row>    
             )}
         </Container>

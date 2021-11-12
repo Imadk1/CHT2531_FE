@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import placeholder from '../Assets/Placeholder.jpg'
-import {Button, Alert} from 'react-bootstrap'
+import {Button, Alert, Nav} from 'react-bootstrap'
 import '../sass/custom.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faPlay, faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
+import {NavLink} from 'react-router-dom';
 
 export const MovieCard = ({movieresults}) => {
     const [trailer, setTrailer] = useState();
@@ -26,10 +27,12 @@ export const MovieCard = ({movieresults}) => {
                     {movieresults.vote_average}
                 </span>
             {movieresults.poster_path ? (
+                <Nav.Link as={NavLink} exact={true} to="/film" className="poster-link" >
                 <img className="poster" 
                 src={`https://image.tmdb.org/t/p/w300${movieresults.poster_path}`} 
                 alt= {movieresults.title}
                />
+               </Nav.Link>
             ) : (
                 <img className="poster"
                  src={placeholder} 
@@ -48,6 +51,8 @@ export const MovieCard = ({movieresults}) => {
                     </div>
                 </div>
             </div>
+            <div>
+        </div>    
         </div>
     )
 }

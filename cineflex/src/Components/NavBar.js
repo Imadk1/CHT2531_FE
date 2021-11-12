@@ -12,7 +12,8 @@ export const NavBar = () => {
                 <Container>
                 <Navbar.Brand as={NavLink} to="/">
                     <img className="nav-logo" src={logo} alt="Logo"></img>
-                </Navbar.Brand>                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                     <Nav.Link className="nav-item mx-2" as={NavLink} exact={true} activeClassName='is-active' to="/">Home</Nav.Link>

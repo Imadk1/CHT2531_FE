@@ -5,6 +5,7 @@ import { Home } from './Pages/Home';
 import { Trending } from './Pages/Trending';
 import { MostPopular } from './Pages/MostPopular';
 import { Search } from './Pages/Search';
+import {FilmPage} from './Pages/FilmPage';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route exact path="/search">
            <Search />
+        </Route>
+        <Route exact path="/film">
+           <FilmPage />
         </Route>
 
      </Switch>

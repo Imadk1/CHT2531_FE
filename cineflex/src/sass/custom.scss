@@ -127,8 +127,12 @@
     background-color: $dark-blue;
     border-radius: 10px;
     position: relative;
-    font-family: "Montserrat", sans-serif;
     color: $off-white;
+
+    &:hover {
+        background-color: $mint;
+        color: $dark-grey !important;
+    }
 
     @media (max-width: 480px) {
         flex-direction: row;
@@ -152,6 +156,9 @@
         height: auto;
     }
 
+    .poster-link {
+        padding: 0 !important;
+    }
     .poster {
         @media (max-width: 480px) {
             width: 110px;
@@ -225,6 +232,10 @@
     
         .watch-btn {
             width: 120px;
+            &:hover {
+                background-color: $dark-blue !important;
+                color: $off-white !important;
+            }
         }
     
         .icons {
@@ -238,7 +249,7 @@
                 padding: 10px;
     
                 &:hover {
-                    color: $mint;
+                    color: $dark-blue;
                 }
             }
         }
