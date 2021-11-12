@@ -8,7 +8,7 @@ import '../sass/custom.scss';
 export const NavBar = () => {
     return (
         <header>
-            <Navbar className="dark" collapseOnSelect expand="lg" variant="dark">
+            <Navbar className="dark" fixed="top" collapseOnSelect expand="lg" variant="dark">
                 <Container>
                 <Navbar.Brand as={NavLink} to="/">
                     <img className="nav-logo" src={logo} alt="Logo"></img>

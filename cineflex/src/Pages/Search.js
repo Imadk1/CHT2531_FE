@@ -26,7 +26,7 @@ export const Search = () => {
     }
     return (
         <div>
-            <Container>
+            <div className="movie-container">
             
             <div className="row height d-flex justify-content-center align-items-center">
                 <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 my-4">
@@ -44,8 +44,8 @@ export const Search = () => {
                     
                 </div>
             </div>
-            </Container>
-            <Container fluid className="movie-container">
+            </div>
+            <Container fluid>
                  {movies.length > 0 && (
                    <Row>
                        {movies.map(movieresults => (

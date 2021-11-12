@@ -9,7 +9,7 @@ export const Trending = () => {
     //const [page, setPage] = useState(1);
     const [movies, setMovies] = useState([]);
 
-    fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false`
+    /*fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false`
     )
     .then((res) => res.json())
     .then((data) => {
@@ -18,7 +18,7 @@ export const Trending = () => {
         }else{
               <Alert variant="danger">Error</Alert>
         }
-    })
+    })*/
     return (
         <Container fluid className="movie-container">
             <h1 className="page-title">Trending</h1>
