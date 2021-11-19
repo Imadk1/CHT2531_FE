@@ -5,7 +5,7 @@ import { Home } from './Pages/Home';
 import { Trending } from './Pages/Trending';
 import { MostPopular } from './Pages/MostPopular';
 import { Search } from './Pages/Search';
-import {FilmPage} from './Pages/FilmPage';
+import {FilmPage} from './Components/FilmPage';
 
 function App() {
   return (

@@ -1,53 +1,43 @@
 import React, {useState} from 'react'
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Alert } from 'react-bootstrap';
 import '../sass/custom.scss';
 
 export const MovieCarousel = () => {
     const [index, setIndex] = useState(0);
+    const [hero, setHero] = useState([]);
+
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
+    )
+    .then((res) => res.json())
+    .then((data) => {
+        if (!data.errors) {
+            setHero(data.results);   
+        }else{
+              <Alert variant="danger">Error</Alert>
+        }
+    });
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
 
+
+
     return (
         <Carousel activeIndex={index} onSelect={handleSelect}>
-        <Carousel.Item>
+        {hero.slice(0,5).map (heroitems=>
+            <Carousel.Item key={heroitems.id}>
             <img
             className="img-carousel"
-            src="https://www.themoviedb.org/t/p/original/eENEf62tMXbhyVvdcXlnQz2wcuT.jpg"
-            alt="First slide"
+            src={`https://image.tmdb.org/t/p/original/${heroitems.backdrop_path}`} 
+            alt={heroitems.title}
             />
             <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>{heroitems.title}</h3>
+            <p>{heroitems.overview}</p>
             </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-            <img
-            className="img-carousel"
-            src="https://www.themoviedb.org/t/p/original/eENEf62tMXbhyVvdcXlnQz2wcuT.jpg"
-            alt="Second slide"
-            />
-
-            <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-            <img
-            className="img-carousel"
-            src="https://www.themoviedb.org/t/p/original/eENEf62tMXbhyVvdcXlnQz2wcuT.jpg"
-            alt="Third slide"
-            />
-
-            <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-            </Carousel.Caption>
-        </Carousel.Item>
+            </Carousel.Item>
+        )}
         </Carousel>
     );
 }

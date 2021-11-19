@@ -24,10 +24,10 @@ export const Search = () => {
             }
         })
     }
+    
     return (
         <div>
-            <div className="movie-container">
-            
+            <div className="search-container">
             <div className="row height d-flex justify-content-center align-items-center">
                 <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 my-4">
                     <form onSubmit={onSubmit} value={query}>
@@ -45,7 +45,7 @@ export const Search = () => {
                 </div>
             </div>
             </div>
-            <Container fluid>
+            <div className="movie-grid" >
                  {movies.length > 0 && (
                    <Row>
                        {movies.map(movieresults => (
@@ -54,8 +54,8 @@ export const Search = () => {
                         </Col>
                         ))}
                    </Row>    
-            )}
-            </Container>
+                 )}
+            </div>
         </div>
         
         

@@ -5,9 +5,11 @@ import '../sass/custom.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faPlay, faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
 import {NavLink} from 'react-router-dom';
+import { FilmPage } from './FilmPage'
 
 export const MovieCard = ({movieresults}) => {
     const [trailer, setTrailer] = useState();
+    const [content, setContent] = useState();
 
     fetch(`https://api.themoviedb.org/3/movie/${movieresults.id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
     .then((res) => res.json())
@@ -16,8 +18,21 @@ export const MovieCard = ({movieresults}) => {
             setTrailer(data.results[0]?.key);   
         }else{
             <Alert variant="danger">Error</Alert>
-            }
+        }
     })
+
+
+    /*fetch(`https://api.themoviedb.org/3/movie/${movieresults.id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
+    .then((res) => res.json())
+    .then((data) => {
+        if (!data.errors) {
+            console.log(data)
+            setContent(data);   
+        }else{
+            <Alert variant="danger">Error</Alert>
+        }
+    })*/
+
 
     return (
         <div className="movie-card">
@@ -52,7 +67,7 @@ export const MovieCard = ({movieresults}) => {
                 </div>
             </div>
             <div>
-        </div>    
+        </div>  
         </div>
     )
 }

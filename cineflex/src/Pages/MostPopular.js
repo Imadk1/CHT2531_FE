@@ -7,16 +7,17 @@ import '../sass/custom.scss';
 export const MostPopular = () => {
     const [movies, setMovies] = useState([]);
 
-    /*fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
     )
     .then((res) => res.json())
     .then((data) => {
         if (!data.errors) {
             setMovies(data.results);   
         }else{
-              <Alert variant="danger">Error</Alert>
+            <Alert variant="danger">Error</Alert>
         }
-    })*/
+    })
+
     return (
         <Container fluid className="movie-container">
             <h1 className="page-title">Popular Movies</h1>
