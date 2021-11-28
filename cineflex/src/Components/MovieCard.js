@@ -1,15 +1,28 @@
 import React, {useState} from 'react'
 import placeholder from '../Assets/Placeholder.jpg'
-import {Button, Alert, Nav} from 'react-bootstrap'
+import {Button, Alert, Nav, Row, Col} from 'react-bootstrap'
 import '../sass/custom.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faPlay, faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { FilmPage } from './FilmPage'
 
 export const MovieCard = ({movieresults}) => {
     const [trailer, setTrailer] = useState();
-    const [content, setContent] = useState();
+    const [details, setDetails] = useState([]);
+
+    const onClick = e => {
+        fetch(`https://api.themoviedb.org/3/movie/${movieresults.id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
+        .then((res) => res.json())
+        .then((data) => {
+            if (!data.errors) {
+                console.log(data)
+                setDetails(data);   
+            }else{
+                <Alert variant="danger">Error</Alert>
+            }
+        })
+    }
 
     fetch(`https://api.themoviedb.org/3/movie/${movieresults.id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
     .then((res) => res.json())
@@ -21,19 +34,6 @@ export const MovieCard = ({movieresults}) => {
         }
     })
 
-
-    /*fetch(`https://api.themoviedb.org/3/movie/${movieresults.id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
-    .then((res) => res.json())
-    .then((data) => {
-        if (!data.errors) {
-            console.log(data)
-            setContent(data);   
-        }else{
-            <Alert variant="danger">Error</Alert>
-        }
-    })*/
-
-
     return (
         <div className="movie-card">
             <div className="poster-container">
@@ -42,7 +42,7 @@ export const MovieCard = ({movieresults}) => {
                     {movieresults.vote_average}
                 </span>
             {movieresults.poster_path ? (
-                <Nav.Link as={NavLink} exact={true} to="/film" className="poster-link" >
+                <Nav.Link as={Link} exact={true} to="/film" onClick={onClick} className="poster-link" >
                 <img className="poster" 
                 src={`https://image.tmdb.org/t/p/w300${movieresults.poster_path}`} 
                 alt= {movieresults.title}
@@ -61,13 +61,14 @@ export const MovieCard = ({movieresults}) => {
                 <div className="card-btn">
                     <Button className="btn btn-secondary watch-btn" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
                     <div className="icons">
-                        <a href className="icon-btn"><FontAwesomeIcon icon={faHeart} /> </a>
+                        <a href className="icon-btn"><FontAwesomeIcon icon={faHeart} onClick={onClick}/></a>
                         <a href className="icon-btn"><FontAwesomeIcon icon={faShare} /> </a>
                     </div>
                 </div>
+                <div key={details.id}>
+                    <h3 className="title">{details.title}</h3>
+                </div>
             </div>
-            <div>
-        </div>  
         </div>
     )
 }

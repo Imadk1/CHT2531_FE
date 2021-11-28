@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Alert, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Col, Row } from 'react-bootstrap';
 import { MovieCard } from '../Components/MovieCard';
 
 export const Search = () => {
