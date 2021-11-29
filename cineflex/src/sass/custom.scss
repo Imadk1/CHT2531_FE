@@ -100,7 +100,7 @@ body{
     background-color: $orange;
     color: $dark-grey !important;
     border: $mint;
-    margin: 0 10px;
+    margin-right:10px;
     font-weight: 600;
 
     &:hover {
@@ -180,7 +180,6 @@ body{
         }
         
     }
-
     .rating {
         display: flex;
         padding: 5px 15px;
@@ -236,39 +235,6 @@ body{
         line-height: 1.5em;
         margin: 10px;
     }
-    
-    .card-btn {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 5px;
-    
-        .watch-btn {
-            width: 120px;
-            &:hover {
-                background-color: $dark-blue !important;
-                color: $off-white !important;
-            }
-        }
-    
-        .icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-    
-            .icon-btn {
-                color: $orange;
-                font-size: 18px;
-                padding: 10px;
-    
-                &:hover {
-                    color: $dark-blue;
-                }
-            }
-        }
-        
-    }
 }
 
 // Carousel 
@@ -303,6 +269,86 @@ body{
     }
 }
 
+// Film Page
+.details-content {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.6);    
+    }
+
+    &__poster-container {
+        border: solid 10px $off-white;
+        border-radius: 5px;
+        z-index: 1;
+    }
+
+    &__info {
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 550px;
+
+        .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .rating {
+            color: $dark-grey;
+            background-color: $orange;
+            padding: 5px 15px;
+        }
+
+        .title{
+            color: $off-white;
+            margin: 0;
+        }
+        .genres-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            color: $dark-grey;
+
+            .genres{
+                padding: 5px 20px;
+                margin-right: 15px;
+                background-color: $mint;
+                border-radius: 15px;
+                font-weight: 600;
+            }
+        }
+
+        .description{
+            color: $off-white;
+        }
+
+        .trailer-btn{
+            padding: 5px 20px;
+        }
+        
+    }
+}
+
+
+
 // Other styling
 
 .page-title {
@@ -311,5 +357,45 @@ body{
     padding: 30px 20px 0px;
     font-weight: 700;
     color: $dark-blue;
+}
+
+.card-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+
+    .watch-btn {
+        width: 120px;
+        &:hover {
+            background-color: $dark-blue !important;
+            color: $off-white !important;
+        }
+    }    
+
+    .icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        .icon-btn {
+            color: $orange;
+            font-size: 18px;
+            padding: 10px;
+    
+            &:hover {
+                color: $dark-blue;
+            }
+
+        }
+
+        .details{
+            font-size: 25px !important;
+            &:hover {
+                color: $mint;
+            }
+        }
+    }
 }
 

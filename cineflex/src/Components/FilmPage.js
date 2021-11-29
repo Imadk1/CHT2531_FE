@@ -1,12 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import { useLocation } from 'react-router';
-import placeholder from '../Assets/Placeholder.jpg'
+import { Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar, faPlay, faHeart, faShare} from '@fortawesome/free-solid-svg-icons'
+
+import '../sass/custom.scss';
 
 import { Alert, Container } from 'react-bootstrap';
 
 export const FilmPage = () => {
     const [details, setDetails] = useState([]);
     const [genres, setGenres] = useState([]);
+    const [trailer, setTrailer] = useState();
     const [companies, setCompanies] = useState([]);
     const location = useLocation();    
 
@@ -19,6 +24,7 @@ export const FilmPage = () => {
                 setDetails(data);  
                 setGenres(data.genres); 
                 setCompanies(data.production_companies); 
+                setTrailer(data.videos.results[0]?.key)
                 console.log(data.genres[0].name)
             }else{
                 <Alert variant="danger">Error</Alert>
@@ -28,43 +34,43 @@ export const FilmPage = () => {
     
 
     return (
-        <Container fluid className="movie-container">
-            <h3>{details.title}</h3>
-            <p>{details.overview}</p>
-            <p>{details.runtime}</p>
-            {details.poster_path ? (
+        <div>
+            <Container fluid className="details-content" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${details.backdrop_path})`}}>
+            <div className="details-content__poster-container mx-5"> 
                 <img className="poster" 
-                src={`https://image.tmdb.org/t/p/w300${details.poster_path}`} 
-                alt= {details.title}
-               />
-            ) : (
-                <img className="poster"
-                 src={placeholder} 
-                 alt= {details.title}
+                    src={`https://image.tmdb.org/t/p/w300${details.poster_path}`} 
+                    alt= {details.title}
                 />
-            )}
-            <div>
+            </div>
+            <div className="details-content__info">
+                <div className="header mb-3">
+                    <h3 className="title">{details.title}</h3>
+                    <span className="rating rounded-pill mx-3">
+                        <FontAwesomeIcon icon={faStar} className="star"/>
+                        {details.vote_average}
+                    </span>
+                </div>
                 {genres && (
-                    <div>
+                    <div className="genres-container">
                         {genres.map(genreName => (
-                        <p  key={genreName.id}>
+                        <p className="genres" key={genreName.id}>
                             {genreName.name}
                         </p>
                     ))}
                     </div>
                 )}
-            </div>
-            <div>
-                {companies && (
-                    <div>
-                        {companies.map(companyName => (
-                        <p  key={companyName.id}>
-                            {companyName.name}
-                        </p>
-                    ))}
+                <p className="description">{details.overview}</p>
+                <div className="card-btn">
+                    <Button className="trailer-btn" variant="secondary" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
+                    <div className="icons">
+                        <a href className="details icon-btn mx-2"><FontAwesomeIcon icon={faHeart} /></a>
+                        <a href className="details icon-btn  mx-2"><FontAwesomeIcon icon={faShare} /> </a>
                     </div>
-                )}
+                </div>
             </div>
-        </Container>
+            
+            </Container>
+        </div>
+
     )
 }
