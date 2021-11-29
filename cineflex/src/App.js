@@ -25,7 +25,7 @@ function App() {
         <Route exact path="/search">
            <Search />
         </Route>
-        <Route exact path="/film">
+        <Route exact path="/film/:id">
            <FilmPage />
         </Route>
 

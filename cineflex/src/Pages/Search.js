@@ -18,6 +18,7 @@ export const Search = () => {
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
+                console.log(data)
                 setMovies(data.results);   
             }else{
                 <Alert variant="danger">Error</Alert>
