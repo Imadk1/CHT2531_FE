@@ -27,7 +27,7 @@ export const MovieCarousel = () => {
     return (
         <Carousel activeIndex={index} onSelect={handleSelect}>
         {hero.slice(0,6).map (heroitems=>
-            <Carousel.Item key={heroitems.id}>
+            <Carousel.Item key={heroitems.id} interval={1000}>
             <img
             className="img-carousel"
             src={`https://image.tmdb.org/t/p/original/${heroitems.backdrop_path}`} 
