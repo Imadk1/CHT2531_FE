@@ -7,7 +7,7 @@ export const MovieCarousel = () => {
     const [index, setIndex] = useState(0);
     const [hero, setHero] = useState([]);
 
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
+    /*fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
     )
     .then((res) => res.json())
     .then((data) => {
@@ -16,7 +16,7 @@ export const MovieCarousel = () => {
         }else{
               <Alert variant="danger">Error</Alert>
         }
-    });
+    });*/
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
