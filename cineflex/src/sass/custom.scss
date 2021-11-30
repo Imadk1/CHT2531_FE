@@ -295,8 +295,8 @@ body{
 
 // Film Page
 .details-content {
-    height: 100vh;
     display: flex;
+    height: 100vh;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -304,6 +304,10 @@ body{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+    }
 
     &::before {
         content: "";
@@ -315,14 +319,25 @@ body{
         background-color: rgba($color: #000000, $alpha: 0.6);    
     }
 
+    .rating {
+        color: $dark-grey;
+        background-color: $orange;
+        padding: 5px 15px;
+    }
+
     &__poster-container {
         border: solid 7px $off-white;
         border-radius: 5px;
         z-index: 1;
+        margin-top: 3rem;
         
 
         .poster {
             height: 500px;
+
+            @media (max-width: 480px) {
+                height: 200px;
+            }
         }
     }
 
@@ -334,20 +349,25 @@ body{
         align-items: flex-start;
         width: 550px;
 
+        @media (max-width: 480px) {
+            width: 100%;
+            margin: 10px;
+            padding: 10px;
+            align-items: center;
+        }
+
         .header {
             display: flex;
             align-items: center;
         }
 
-        .rating {
-            color: $dark-grey;
-            background-color: $orange;
-            padding: 5px 15px;
-        }
-
         .title{
             color: $off-white;
             margin: 0;
+
+            @media (max-width: 480px) {
+                text-align: center;
+            }
         }
         .genres-container{
             display: flex;
@@ -358,7 +378,7 @@ body{
 
             .genres{
                 padding: 5px 20px;
-                margin-right: 15px;
+                margin: 0.5rem 0.5rem;
                 background-color: $mint;
                 border-radius: 15px;
                 font-weight: 600;
@@ -367,6 +387,11 @@ body{
 
         .description{
             color: $off-white;
+            margin-top: 0.5rem;
+
+            @media (max-width: 480px) {
+                text-align: center;
+            }
         }
 
         .trailer-btn{

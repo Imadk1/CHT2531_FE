@@ -40,14 +40,15 @@ export const FilmPage = () => {
                     src={`https://image.tmdb.org/t/p/w300/${details.poster_path}`} 
                     alt= {details.title}
                 />
+                
             </div>
             <div className="details-content__info">
-                <div className="header mb-3">
+                <div className="header mb-1">
                     <h3 className="title">{details.title}</h3>
-                    <span className="rating rounded-pill mx-3">
+                    <div className="rating translate-left rounded-pill mx-3">
                         <FontAwesomeIcon icon={faStar} className="star"/>
-                        {details.vote_average}
-                    </span>
+                         {details.vote_average}
+                    </div>
                 </div>
                 {genres && (
                     <div className="genres-container">

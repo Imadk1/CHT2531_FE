@@ -1,14 +1,26 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Alert, Col, Row } from 'react-bootstrap';
+import { Alert, Col, Row, ListGroup } from 'react-bootstrap';
 import { MovieCard } from '../Components/MovieCard';
 
 export const Search = () => {
     const [query, setQuery] = useState("");
     const [movies, setMovies] = useState([]);
+    //const [sayt, setSayt] = useState([]);
     const onChange = e => {
         e.preventDefault();
         setQuery(e.target.value);
+        /*fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false&query=${e.target.value}`
+        )
+        .then((res) => res.json())
+        .then((data) => {
+            if (!data.errors) {
+                console.log(data)
+                setSayt(data.results);   
+            }else{
+                <Alert variant="danger">Error</Alert>
+            }
+        })*/
     }
     const onSubmit = e => {
         e.preventDefault();
