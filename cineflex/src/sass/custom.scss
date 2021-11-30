@@ -257,8 +257,24 @@ body{
     opacity:0.5 !important;
 }
 
+
 .carousel-caption {
+    position: absolute;
+    top: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
     z-index: 2;
+
+    .hero-title {
+        text-align: left;
+    }
 
     p {
         display: -webkit-box;
@@ -266,8 +282,16 @@ body{
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
+        text-align: left;
+        width: 550px;
+    }
+
+    .watch-btn {
+        margin-right: 0;
+        width: 200px;
     }
 }
+
 
 // Film Page
 .details-content {
@@ -292,9 +316,14 @@ body{
     }
 
     &__poster-container {
-        border: solid 10px $off-white;
+        border: solid 7px $off-white;
         border-radius: 5px;
         z-index: 1;
+        
+
+        .poster {
+            height: 500px;
+        }
     }
 
     &__info {

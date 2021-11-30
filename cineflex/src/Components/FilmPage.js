@@ -12,7 +12,6 @@ export const FilmPage = () => {
     const [details, setDetails] = useState([]);
     const [genres, setGenres] = useState([]);
     const [trailer, setTrailer] = useState();
-    const [companies, setCompanies] = useState([]);
     const location = useLocation();    
 
     useEffect( () => { 
@@ -20,10 +19,10 @@ export const FilmPage = () => {
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
+                console.log(location.state)
                 console.log(data)
                 setDetails(data);  
                 setGenres(data.genres); 
-                setCompanies(data.production_companies); 
                 setTrailer(data.videos.results[0]?.key)
                 console.log(data.genres[0].name)
             }else{
@@ -38,7 +37,7 @@ export const FilmPage = () => {
             <Container fluid className="details-content" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${details.backdrop_path})`}}>
             <div className="details-content__poster-container mx-5"> 
                 <img className="poster" 
-                    src={`https://image.tmdb.org/t/p/w300${details.poster_path}`} 
+                    src={`https://image.tmdb.org/t/p/w300/${details.poster_path}`} 
                     alt= {details.title}
                 />
             </div>

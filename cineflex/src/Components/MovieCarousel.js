@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import { Carousel, Alert } from 'react-bootstrap';
+import { Carousel, Alert, Button } from 'react-bootstrap';
+import {NavLink} from 'react-router-dom';
 import '../sass/custom.scss';
 
 export const MovieCarousel = () => {
@@ -25,7 +26,7 @@ export const MovieCarousel = () => {
 
     return (
         <Carousel activeIndex={index} onSelect={handleSelect}>
-        {hero.slice(0,5).map (heroitems=>
+        {hero.slice(0,6).map (heroitems=>
             <Carousel.Item key={heroitems.id}>
             <img
             className="img-carousel"
@@ -33,8 +34,29 @@ export const MovieCarousel = () => {
             alt={heroitems.title}
             />
             <Carousel.Caption>
-            <h3>{heroitems.title}</h3>
-            <p>{heroitems.overview}</p>
+            <div className="d-flex flex-column align-items-start">
+                    <h3 className="hero-title">{heroitems.title}</h3>
+                    <p>{heroitems.overview}</p>
+                    <Button 
+                    as={NavLink} 
+                    exact={true} 
+                    to={
+                            {
+                                pathname:`/film/${heroitems.id}`, 
+                                state: heroitems.id 
+                            }
+                        } 
+                    className="btn btn-secondary watch-btn">
+                        Watch
+                    </Button> 
+                </div>
+                <div className="details-content__poster-container d-flex flex-row"> 
+                    <img className="poster" 
+                        src={`https://image.tmdb.org/t/p/w500${heroitems.poster_path}`} 
+                        alt= {heroitems.title}
+                    />
+                </div>
+                           
             </Carousel.Caption>
             </Carousel.Item>
         )}
