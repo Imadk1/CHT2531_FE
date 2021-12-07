@@ -6,7 +6,7 @@ import { MovieCard } from '../Components/MovieCard';
 export const Search = () => {
     const [query, setQuery] = useState("");
     const [movies, setMovies] = useState([]);
-    //const [sayt, setSayt] = useState([]);
+    const [sayt, setSayt] = useState([]);
     const onChange = e => {
         e.preventDefault();
         setQuery(e.target.value);
@@ -51,6 +51,7 @@ export const Search = () => {
                                 placeholder="Search for a movie..." 
                                 onChange={onChange}
                             /> 
+
                             <button type="submit" onClick={onSubmit} value={query} className="search-button btn btn-primary">Search</button> 
                         </div>
                     </form>
