@@ -56,7 +56,6 @@ export const MovieCarousel = () => {
                         alt= {heroitems.title}
                     />
                 </div>
-                           
             </Carousel.Caption>
             </Carousel.Item>
         )}
