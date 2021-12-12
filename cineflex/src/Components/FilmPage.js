@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { useLocation } from 'react-router';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faPlay, faHeart, faShare} from '@fortawesome/free-solid-svg-icons'
-
+import {Helmet} from "react-helmet";
 import '../sass/custom.scss';
-
-import { Alert, Container } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
 export const FilmPage = () => {
     const [details, setDetails] = useState([]);
@@ -30,13 +29,17 @@ export const FilmPage = () => {
                 <Alert variant="danger">Error</Alert>
             }
         })
+    // eslint-disable-next-line
     }, [])
     
 
     return (
         <div>
-            <div  className="details-content" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${details.backdrop_path})`}}>
-                <div className="details-content__container">
+             <Helmet>
+                <style>{'body { background-color: black; }'}</style>
+            </Helmet>
+            <div className="details-bg" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${details.backdrop_path})`}}></div>
+                <div className="details-content">
                     <div className="details-content__poster-container mx-5"> 
                         <img className="poster" 
                             src={`https://image.tmdb.org/t/p/w300/${details.poster_path}`} 
@@ -69,16 +72,23 @@ export const FilmPage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
+            <div className='cast-container'>
                 {cast && (
-                    <div className="cast-container">
-                            {cast.slice(0,6).map(castName => (
-                            <Card className="mx-3 mb-5" key={castName.id} style={{ width: '180px' }}>
-                                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w300/${castName.profile_path}`}  />
-                                <Card.Body>
-                                <Card.Title>{castName.name}</Card.Title>
-                                </Card.Body>
-                            </Card>
+                    <div className="cast-container__content">
+                        {cast.slice(0,6).map(castName => (
+                            <div className="cast-container__card">
+                                <div className="cast-container__profile">
+                                    <img className="cast-container__img"
+                                    src={`https://image.tmdb.org/t/p/w500/${castName.profile_path}`}
+                                    alt= {castName.name}
+                                    />
+                                </div>
+                                <div className="cast-container__name">
+                                    <b className="name mobile-text">{castName.name}</b>
+                                </div>
+                            </div>
+                           
                         ))}
                     </div>
                 )}

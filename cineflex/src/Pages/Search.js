@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// eslint-disable-next-line
 import { Alert, Col, Row, ListGroup } from 'react-bootstrap';
 import { MovieCard } from '../Components/MovieCard';
 
 export const Search = () => {
     const [query, setQuery] = useState("");
     const [movies, setMovies] = useState([]);
+    // eslint-disable-next-line
     const [sayt, setSayt] = useState([]);
     const onChange = e => {
         e.preventDefault();

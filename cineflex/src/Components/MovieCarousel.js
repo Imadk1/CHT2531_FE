@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
+// eslint-disable-next-line
 import { Carousel, Alert, Button } from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import '../sass/custom.scss';
 
 export const MovieCarousel = () => {
     const [index, setIndex] = useState(0);
+    // eslint-disable-next-line
     const [hero, setHero] = useState([]);
 
     /*fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
