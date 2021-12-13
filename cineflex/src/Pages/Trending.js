@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // eslint-disable-next-line
 import { Alert, Col, Container, Row } from 'react-bootstrap';
 import { MovieCard } from '../Components/MovieCard';
-import '../sass/custom.scss';
 
 
 export const Trending = () => {

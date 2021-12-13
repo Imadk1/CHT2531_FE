@@ -3,7 +3,6 @@ import {Navbar, Nav, Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../Assets/logo-white.svg'
 import {NavLink} from 'react-router-dom';
-import '../sass/custom.scss';
 
 export const NavBar = () => {
     return (
