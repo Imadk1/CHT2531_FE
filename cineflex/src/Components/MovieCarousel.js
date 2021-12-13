@@ -18,11 +18,11 @@ export const MovieCarousel = () => {
         }else{
               <Alert variant="danger">Error</Alert>
         }
-    });
+    });*/
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
-    };*/
+    };
 
 
 
