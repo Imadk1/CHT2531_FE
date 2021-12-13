@@ -47,6 +47,11 @@ body{
         width: 75px;
     }
 
+    .sayt {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+    }
     
 }
 
@@ -431,8 +436,8 @@ body{
 
     &__content {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+        gap: 15px;
         width: 100%;
 
         @media (max-width: 480px) {
@@ -444,7 +449,7 @@ body{
     }
 
     &__card {
-        margin: 10px;
+        margin: 20px 10px;
         width: 150px;
 
         @media (max-width: 480px) {
@@ -523,4 +528,3 @@ body{
         }
     }
 }
-

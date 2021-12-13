@@ -6,6 +6,8 @@ import { Trending } from './Pages/Trending';
 import { MostPopular } from './Pages/MostPopular';
 import { Search } from './Pages/Search';
 import {FilmPage} from './Components/FilmPage';
+import {CastPage} from './Components/CastPage'
+import './sass/custom.scss';
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
         </Route>
         <Route exact path="/film/:id">
            <FilmPage />
+        </Route>
+        <Route exact path="/cast/:id">
+           <CastPage />
         </Route>
 
      </Switch>

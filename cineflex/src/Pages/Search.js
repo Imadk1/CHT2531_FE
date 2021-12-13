@@ -7,12 +7,13 @@ import { MovieCard } from '../Components/MovieCard';
 export const Search = () => {
     const [query, setQuery] = useState("");
     const [movies, setMovies] = useState([]);
+    const [show, setShow] = useState(true);
     // eslint-disable-next-line
     const [sayt, setSayt] = useState([]);
     const onChange = e => {
         e.preventDefault();
         setQuery(e.target.value);
-        /*fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false&query=${e.target.value}`
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false&query=${e.target.value}`
         )
         .then((res) => res.json())
         .then((data) => {
@@ -22,7 +23,7 @@ export const Search = () => {
             }else{
                 <Alert variant="danger">Error</Alert>
             }
-        })*/
+        })
     }
     const onSubmit = e => {
         e.preventDefault();
@@ -38,6 +39,11 @@ export const Search = () => {
                 <Alert variant="danger">Error</Alert>
             }
         })
+        setShow((s) => !s)
+    }
+
+    const saytShow = e => {
+        setShow((s) => !s)
     }
     
     return (
@@ -52,7 +58,17 @@ export const Search = () => {
                                 className="form-control" 
                                 placeholder="Search for a movie..." 
                                 onChange={onChange}
+                                onClick={saytShow}
                             /> 
+                            {sayt.length > 0 && (
+                                <ListGroup className="sayt" style={{ display: show ? "block" : "none" }}>
+                                    {sayt.map(suggestions => (
+                                        <ListGroup.Item action type="submit" onClick={onSubmit} value={query}>
+                                            {suggestions.title}
+                                        </ListGroup.Item>
+                                    ))}
+                                </ListGroup>
+                            )}
 
                             <button type="submit" onClick={onSubmit} value={query} className="search-button btn btn-primary">Search</button> 
                         </div>

@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import placeholder from '../Assets/Placeholder.jpg'
 import {Button, Alert, Nav} from 'react-bootstrap'
-import '../sass/custom.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faPlay, faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
 import {NavLink} from 'react-router-dom';

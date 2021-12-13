@@ -1,16 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import { useLocation } from 'react-router';
-import { Button, Card} from 'react-bootstrap';
+import { Button, Nav} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faPlay, faHeart, faShare} from '@fortawesome/free-solid-svg-icons'
 import {Helmet} from "react-helmet";
-import '../sass/custom.scss';
+
 import { Alert } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 export const FilmPage = () => {
     const [details, setDetails] = useState([]);
     const [genres, setGenres] = useState([]);
-    const [cast, setCast] = useState();
+    const [cast, setCast] = useState([]);
     const [trailer, setTrailer] = useState();
     const location = useLocation();    
 
@@ -76,8 +77,9 @@ export const FilmPage = () => {
             <div className='cast-container'>
                 {cast && (
                     <div className="cast-container__content">
-                        {cast.slice(0,6).map(castName => (
-                            <div className="cast-container__card">
+                        {cast.slice(0,8).map(castName => (
+                            <Nav.Link as={NavLink} exact={true} to={{pathname:`/cast/${castName.id}`, state: castName.id }} className="poster-link" >                
+                            <div className="cast-container__card" key={castName.id}>
                                 <div className="cast-container__profile">
                                     <img className="cast-container__img"
                                     src={`https://image.tmdb.org/t/p/w500/${castName.profile_path}`}
@@ -88,10 +90,11 @@ export const FilmPage = () => {
                                     <b className="name mobile-text">{castName.name}</b>
                                 </div>
                             </div>
-                           
+                           </Nav.Link>
                         ))}
                     </div>
                 )}
+                
             </div>
         </div>
 
