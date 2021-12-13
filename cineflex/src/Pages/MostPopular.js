@@ -8,7 +8,7 @@ export const MostPopular = () => {
     // eslint-disable-next-line
     const [movies, setMovies] = useState([]);
 
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
+    /*fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
     )
     .then((res) => res.json())
     .then((data) => {
@@ -17,7 +17,7 @@ export const MostPopular = () => {
         }else{
             <Alert variant="danger">Error</Alert>
         }
-    })
+    })*/
 
     return (
         <Container fluid className="movie-container">

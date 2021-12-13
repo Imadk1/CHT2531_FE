@@ -9,7 +9,7 @@ export const MovieCarousel = () => {
     // eslint-disable-next-line
     const [hero, setHero] = useState([]);
 
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
+    /*fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
     )
     .then((res) => res.json())
     .then((data) => {
@@ -22,7 +22,7 @@ export const MovieCarousel = () => {
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
-    };
+    };*/
 
 
 
