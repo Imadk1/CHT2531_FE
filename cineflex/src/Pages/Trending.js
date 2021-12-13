@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert, Col, Container, Row } from 'react-bootstrap';
 import { MovieCard } from '../Components/MovieCard';
 
-
 export const Trending = () => {
     //const [page, setPage] = useState(1);
     // eslint-disable-next-line
