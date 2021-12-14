@@ -76,7 +76,7 @@ export const FilmPage = () => {
             </div>
             <div className='cast-container'>
                 {cast && (
-                    <div className="cast-container__content">
+                    <div className="cast-container__content scroller">
                         {cast.slice(0,15).map(castName => (
                             <Nav.Link as={NavLink} exact={true} to={{pathname:`/cast/${castName.id}`, state: castName.id }} className="hidden-link" >                
                             <div className="cast-container__card" key={castName.id}>

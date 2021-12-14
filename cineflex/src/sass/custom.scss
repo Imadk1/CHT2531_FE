@@ -481,26 +481,6 @@ body{
     margin: 10px 20px;
     position: relative;
     
-
-    &__content {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        align-items: center;
-        justify-content: flex-start;
-        overflow-y: hidden;
-        overflow-x: scroll;
-        -webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-        }
-        -webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-    }
-
     &__card {
         margin: 20px 10px;
         width: 150px;
@@ -570,13 +550,23 @@ body{
 
 // Other styling
 
-.scroller-fade {
-    content: '';
-    width: 80%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    background-image: linear-gradient(to right, rgba(255,255,255,0) 0%, #fff 100%);
+.scroller {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+    -webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
 }
 
 .page-title {
