@@ -26,7 +26,7 @@ export const MovieCard = ({movieresults}) => {
                     {movieresults.vote_average}
                 </span>
             {movieresults.poster_path ? (
-                <Nav.Link as={NavLink} exact={true} to={{pathname:`/film/${movieresults.id}`, state: movieresults.id }} className="poster-link" >                
+                <Nav.Link as={NavLink} exact={true} to={{pathname:`/film/${movieresults.id}`, state: movieresults.id }} className="hidden-link" >                
                 <img className="poster" 
                 src={`https://image.tmdb.org/t/p/w300${movieresults.poster_path}`} 
                 alt= {movieresults.title}
@@ -40,7 +40,7 @@ export const MovieCard = ({movieresults}) => {
             )}
             </div>
             <div className="content-container">
-                <b className="title mobile-text">{movieresults.title}</b>
+                <h2 className="title mobile-text">{movieresults.title}</h2>
                 <p className="desc mobile-text">{movieresults.release_date}</p>
                 <div className="card-btn">
                     <Button className="btn btn-secondary watch-btn" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>

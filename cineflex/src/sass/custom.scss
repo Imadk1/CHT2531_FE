@@ -2,8 +2,14 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./var.scss";
 
+@font-face {
+    font-family: 'Open Sans';
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap') format('opentype');
+}
+
 body{
     overflow-x: hidden;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 // Container
@@ -123,6 +129,46 @@ body{
     }
 }
 
+.card-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+
+    .watch-btn {
+        width: 120px;
+        &:hover {
+            background-color: $dark-blue !important;
+            color: $off-white !important;
+        }
+    }    
+
+    .icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        .icon-btn {
+            color: $orange;
+            font-size: 18px;
+            padding: 10px;
+    
+            &:hover {
+                color: $dark-blue;
+            }
+
+        }
+
+        .details{
+            font-size: 25px !important;
+            &:hover {
+                color: $mint;
+            }
+        }
+    }
+}
+
 //Movie Card
 
 .movie-grid {
@@ -161,6 +207,10 @@ body{
     }
 }
 
+.hidden-link {
+    padding: 0 !important;
+}
+
 .poster-container {
     max-width: 100%;
     max-height: 100%;
@@ -175,9 +225,6 @@ body{
         height: auto;
     }
 
-    .poster-link {
-        padding: 0 !important;
-    }
     .poster {
         @media (max-width: 480px) {
             width: 110px;
@@ -431,21 +478,27 @@ body{
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
-    margin-top: 10px;
+    margin: 10px 20px;
     position: relative;
+    
 
     &__content {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-        gap: 15px;
+        display: flex;
+        flex-direction: row;
         width: 100%;
-
-        @media (max-width: 480px) {
-            width: 94%;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-            gap: 10px;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
         }
-
+        -webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
     }
 
     &__card {
@@ -453,7 +506,7 @@ body{
         width: 150px;
 
         @media (max-width: 480px) {
-            width: 100%;
+            width: 130px;
         }
     }
 
@@ -471,15 +524,60 @@ body{
 
     &__name {
         color: $off-white;
-        margin: 5px 0px;
+        margin: 10px;
+        height: 3em;
+        overflow: hidden;
         text-align: center;
     }
 }
 
 
+//Person Page
+
+.person-info {
+    display: flex;
+    flex-direction: row;
+    background-color: #EEEEEE;
+    margin: 3rem 0;
+    padding: 3rem;
+    
+    &_poster {
+        margin-right: 2rem;
+        .poster {
+            border-radius: 10px;
+        }
+    }
+
+    &__details {        
+        .title {
+            color: $dark-blue;
+        }
+
+        .personal{
+            display: flex;
+
+            .dob {
+                margin-right: 30px;
+            }
+        }
+    }
+
+
+
+}
+
 
 
 // Other styling
+
+.scroller-fade {
+    content: '';
+    width: 80%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0) 0%, #fff 100%);
+}
 
 .page-title {
     display: flex;
@@ -487,44 +585,4 @@ body{
     padding: 30px 20px 0px;
     font-weight: 700;
     color: $dark-blue;
-}
-
-.card-btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5px;
-
-    .watch-btn {
-        width: 120px;
-        &:hover {
-            background-color: $dark-blue !important;
-            color: $off-white !important;
-        }
-    }    
-
-    .icons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    
-        .icon-btn {
-            color: $orange;
-            font-size: 18px;
-            padding: 10px;
-    
-            &:hover {
-                color: $dark-blue;
-            }
-
-        }
-
-        .details{
-            font-size: 25px !important;
-            &:hover {
-                color: $mint;
-            }
-        }
-    }
 }
