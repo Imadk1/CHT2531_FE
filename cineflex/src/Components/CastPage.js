@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { useLocation } from 'react-router';
 import { Alert } from 'react-bootstrap';
+import { ScrollCard } from './ScrollCard';
 
 export const CastPage = () => {
     const [person, setPerson] = useState([]);
+    const [credits, setCredits] = useState([]);
     const location = useLocation(); 
 
     useEffect( () => { 
@@ -13,7 +15,8 @@ export const CastPage = () => {
             if (!data.errors) {
                 console.log(location.state)
                 console.log(data)
-                setPerson(data);  
+                setPerson(data); 
+                setCredits(data.movie_credits.cast) 
             }else{
                 <Alert variant="danger">Error</Alert>
             }
@@ -23,7 +26,7 @@ export const CastPage = () => {
 
     return (
         <div>
-            <div className="person-info">
+            <div className="person-info movie-container">
                 <div className="person-info_poster"> 
                     <img className="poster" 
                     src={`https://image.tmdb.org/t/p/w300/${person.profile_path}`} 
@@ -33,18 +36,35 @@ export const CastPage = () => {
                 <div className="person-info__details">
                     <h2 className='title'>{person.name}</h2>
                     <div className='personal'>
-                        <div className='dob'>
-                            <span>D.O.B</span>
+                        <div className='details'>
+                            <p className='header'>D.O.B</p>
                             <p>{person.birthday}</p>
                         </div>
-                        <div className='place-of-birth'>
-                            <span>Place of birth</span>
+                        <div className='details'>
+                            <p className='header'>Place of birth</p>
                             <p>{person.place_of_birth}</p>
                         </div>
+                        <div className='details'>
+                            <p className='header'>Known for</p>
+                            <p>{person.known_for_department}</p>
+                        </div>
                     </div>
-                    <h5>Biography</h5>
-                    <p>{person.biography}</p>
+                    <div className='biography'>
+                        <h5>Biography</h5>
+                        <p>{person.biography}</p>
+                    </div>
+                    <div className='cast-container'>
+                    <h3>Credits</h3>
+                    {credits && (
+                        <div className='scroller' >
+                            {credits.slice(0,20).map(movieresults => (
+                                <ScrollCard movieresults={movieresults} key={movieresults.id}/>
+                            ))}
+                        </div>       
+                    )}
                 </div>
+                </div>
+                
             </div>
             
         </div>

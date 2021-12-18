@@ -9,7 +9,7 @@ export const MovieCarousel = () => {
     // eslint-disable-next-line
     const [hero, setHero] = useState([]);
 
-    /*fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
+    /*fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&region=GB`
     )
     .then((res) => res.json())
     .then((data) => {
@@ -36,7 +36,7 @@ export const MovieCarousel = () => {
             alt={heroitems.title}
             />
             <Carousel.Caption>
-            <div className="d-flex flex-column align-items-start">
+            <div className="d-flex flex-column details">
                     <h3 className="hero-title">{heroitems.title}</h3>
                     <p>{heroitems.overview}</p>
                     <Button 

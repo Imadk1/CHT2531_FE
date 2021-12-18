@@ -7,14 +7,14 @@ import { MovieCard } from '../Components/MovieCard';
 export const Trending = () => {
     //const [page, setPage] = useState(1);
     // eslint-disable-next-line
-    const [movies, setMovies] = useState([]);
+    const [trending, setTrending] = useState([]);
 
-    /*fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false`
+    /*fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false&region=GB`
     )
     .then((res) => res.json())
     .then((data) => {
         if (!data.errors) {
-            setMovies(data.results);   
+            setTrending(data.results);   
         }else{
             <Alert variant="danger">Error</Alert>
         }
@@ -23,9 +23,9 @@ export const Trending = () => {
     return (
         <Container fluid className="movie-container">
             <h1 className="page-title">Trending</h1>
-            {movies && (
+            {trending && (
                 <Row>
-                   {movies.map(movieresults => (
+                   {trending.map(movieresults => (
                         <Col className="movie-grid" key={movieresults.id}>
                             <MovieCard movieresults={movieresults}/>
                         </Col>

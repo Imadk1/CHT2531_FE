@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // eslint-disable-next-line
-import { Alert, Col, Row, ListGroup } from 'react-bootstrap';
+import { Alert, Col, Row, ListGroup, Container } from 'react-bootstrap';
 import { MovieCard } from '../Components/MovieCard';
 
 export const Search = () => {
@@ -38,7 +38,7 @@ export const Search = () => {
             }else{
                 <Alert variant="danger">Error</Alert>
             }
-        })
+        });
         setShow((s) => !s)
     }
 
@@ -77,7 +77,7 @@ export const Search = () => {
                 </div>
             </div>
             </div>
-            <div className="movie-grid" >
+            <Container fluid className="movie-grid">
                  {movies.length > 0 && (
                    <Row>
                        {movies.map(movieresults => (
@@ -87,7 +87,7 @@ export const Search = () => {
                         ))}
                    </Row>    
                  )}
-            </div>
+            </Container>
         </div>
         
         

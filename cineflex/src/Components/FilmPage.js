@@ -57,7 +57,7 @@ export const FilmPage = () => {
                         </div>
                         {genres && (
                             <div className="genres-container">
-                                {genres.map(genreName => (
+                                {genres.slice(0,3).map(genreName => (
                                 <p className="genres" key={genreName.id}>
                                     {genreName.name}
                                 </p>
@@ -75,9 +75,10 @@ export const FilmPage = () => {
                     </div>
             </div>
             <div className='cast-container'>
+                <h3>Cast</h3>
                 {cast && (
                     <div className="cast-container__content scroller">
-                        {cast.slice(0,15).map(castName => (
+                        {cast.slice(0,22).map(castName => (
                             <Nav.Link as={NavLink} exact={true} to={{pathname:`/cast/${castName.id}`, state: castName.id }} className="hidden-link" >                
                             <div className="cast-container__card" key={castName.id}>
                                 <div className="cast-container__profile">
@@ -87,7 +88,7 @@ export const FilmPage = () => {
                                     />
                                 </div>
                                 <div className="cast-container__name">
-                                    <h6 className="name mobile-text">{castName.name}</h6>
+                                    <h6 className="name">{castName.name}</h6>
                                 </div>
                             </div>
                            </Nav.Link>

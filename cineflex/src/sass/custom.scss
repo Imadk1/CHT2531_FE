@@ -313,19 +313,32 @@ body{
 .carousel-caption {
     position: absolute;
     top: 0;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     height: 100%;
     z-index: 2;
 
+    @media (max-width: 650px) {
+        flex-direction: column-reverse;
+    }
+
     .hero-title {
         text-align: left;
+
+        @media (max-width: 650px) {
+            text-align: center;
+        }
+    }
+
+    .details {
+        margin: 50px;
+        align-items: flex-start;
+
+        @media (max-width: 650px) {
+            align-items: center;
+        }
     }
 
     p {
@@ -336,6 +349,11 @@ body{
         text-overflow: ellipsis;
         text-align: left;
         width: 550px;
+
+        @media (max-width: 650px) {
+            width: 95vw;
+            text-align: center;
+        }
     }
 
     .watch-btn {
@@ -432,11 +450,16 @@ body{
         .header {
             display: flex;
             align-items: center;
+
+            @media (max-width: 480px) {
+               flex-direction: column-reverse;
+            }
+            
         }
 
         .title{
             color: $off-white;
-            margin: 0;
+            margin: 15px;
 
             @media (max-width: 600px) {
                 text-align: center;
@@ -448,13 +471,17 @@ body{
             align-items: center;
             flex-direction: row;
             color: $dark-grey;
+            margin-top: 10px;
 
             .genres{
                 padding: 5px 20px;
-                margin: 0.5rem 0.5rem;
                 background-color: $mint;
+                margin: 5px;
                 border-radius: 15px;
                 font-weight: 600;
+                font-size: 14px;
+                color: $dark-grey;
+                width: max-content;
             }
         }
 
@@ -478,11 +505,16 @@ body{
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
-    margin: 10px 20px;
+    margin: 10px 10px;
     position: relative;
     
+    h3{
+        color: $orange;
+        font-weight: 600;
+    }
+
     &__card {
-        margin: 20px 10px;
+        margin-right: 10px;
         width: 150px;
 
         @media (max-width: 480px) {
@@ -511,33 +543,111 @@ body{
     }
 }
 
+// Scroll card
+
+.scroll-card {
+    margin: 10px 10px 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__poster {
+        border: solid 7px $mint;
+        border-radius: 5px;
+        margin-bottom: 10px;
+
+        .poster{
+            width: 200px;
+        }
+    }
+
+    &__title {
+        height: 3em;
+        overflow: hidden;
+        text-align: center;
+        
+        .title {
+            font-weight: 600;
+        }
+        
+    }
+    
+}
+
 
 //Person Page
 
 .person-info {
     display: flex;
-    flex-direction: row;
-    background-color: #EEEEEE;
-    margin: 3rem 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 3rem;
     
     &_poster {
-        margin-right: 2rem;
         .poster {
-            border-radius: 10px;
+            border: 10px solid $mint;
+            border-radius: 5px;
+            width: 250px;
+
+            @media (max-width: 600px) {
+                width: 200px;
+            }
         }
     }
 
-    &__details {        
+    &__details {    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+
+        h3{
+            color: $dark-blue;
+        }
+
+            
         .title {
             color: $dark-blue;
         }
 
         .personal{
             display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100vw;
+            margin: 20px 0;
+            padding: 20px;
+            background-color:$light-grey ;
 
-            .dob {
-                margin-right: 30px;
+            @media (max-width: 600px) {
+                flex-direction: column;
+            }
+
+            .details {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                margin: 10px;
+
+                .header {
+                    font-weight: 600;
+                }
+
+                p{
+                    margin: 0px;
+                }
+            }
+        }
+        .biography {
+            text-align: center;
+            padding: 0 40px;
+
+            @media (max-width: 600px) {
+                text-align: left;
             }
         }
     }
@@ -553,7 +663,7 @@ body{
 .scroller {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 98vw;
     align-items: center;
     justify-content: flex-start;
     overflow-y: hidden;
@@ -566,6 +676,10 @@ body{
         border-radius: 4px;
         background-color: rgba(0, 0, 0, .5);
         box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+
+    @media (max-width: 600px) {
+        width: 93vw;
     }
 }
 

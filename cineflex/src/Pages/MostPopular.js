@@ -6,14 +6,14 @@ import { MovieCard } from '../Components/MovieCard';
 
 export const MostPopular = () => {
     // eslint-disable-next-line
-    const [movies, setMovies] = useState([]);
+    const [popular, setPopular] = useState([]);
 
-    /*fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US`
+    /*fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&region=GB`
     )
     .then((res) => res.json())
     .then((data) => {
         if (!data.errors) {
-            setMovies(data.results);   
+            setPopular(data.results);   
         }else{
             <Alert variant="danger">Error</Alert>
         }
@@ -22,9 +22,9 @@ export const MostPopular = () => {
     return (
         <Container fluid className="movie-container">
             <h1 className="page-title">Popular Movies</h1>
-                {movies && (
+                {popular && (
                    <Row>
-                       {movies.map(movieresults => (
+                       {popular.map(movieresults => (
                             <Col className="movie-grid" key={movieresults.id}>
                                 <MovieCard movieresults={movieresults}/>
                             </Col>
