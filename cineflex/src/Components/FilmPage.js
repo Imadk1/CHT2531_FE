@@ -98,8 +98,7 @@ export const FilmPage = () => {
                                         <img 
                                             className='watch-icons__logo' 
                                             src={`https://image.tmdb.org/t/p/original/${watchProvider.logo_path}`}
-                                            alt= {watchProvider.provider_name}
-                                        />
+                                            alt= {watchProvider.provider_name}/>
                                     ))}
                                 </div>
                             </div>
