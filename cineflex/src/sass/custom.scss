@@ -527,6 +527,11 @@ body{
             align-items: flex-start;
             margin-top: 1rem;
 
+            @media (max-width: 600px) {
+                align-items: center;
+            }
+
+
             h5 {
                 color: $off-white;
             }
