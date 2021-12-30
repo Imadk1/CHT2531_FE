@@ -53,7 +53,7 @@ export const CastPage = () => {
                         <h5>Biography</h5>
                         <p>{person.biography}</p>
                     </div>
-                    <div className='scroll-container films'>
+                    <div className='scroll-container cast films'>
                     <h4>Credits</h4>
                     {credits && (
                         <div className='scroller' >
