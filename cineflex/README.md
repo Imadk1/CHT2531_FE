@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 
-### `npm install`, `npm install react-bootstrap bootstrap`, `npm install react-router-dom`, `npm install metlify`
+### `npm install`, `npm install react-bootstrap bootstrap`, `npm install react-router-dom`, `npm install netlify`
 
 ### `npm start`
 

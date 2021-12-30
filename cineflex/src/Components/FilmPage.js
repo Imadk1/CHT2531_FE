@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { useLocation } from 'react-router';
-import { Button, Nav} from 'react-bootstrap';
+import { Nav} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faPlay, faHeart, faShare} from '@fortawesome/free-solid-svg-icons'
 import {Helmet} from "react-helmet";
+import { ScrollCard } from './ScrollCard';
 
 import { Alert } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
@@ -13,19 +14,22 @@ export const FilmPage = () => {
     const [genres, setGenres] = useState([]);
     const [cast, setCast] = useState([]);
     const [trailer, setTrailer] = useState();
+    const [similar, setSimilar] = useState([]);
     const location = useLocation();    
 
     useEffect( () => { 
-        fetch(`https://api.themoviedb.org/3/movie/${location.state}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&append_to_response=release_dates,videos,credits,watch/providers`)
+        fetch(`https://api.themoviedb.org/3/movie/${location.state}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&append_to_response=release_dates,videos,credits,watch/providers,similar&region=GB`)
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
                 console.log(location.state)
                 console.log(data)
-                setDetails(data);  
+                setDetails(data); 
+                console.log(data.release_dates.results) 
                 setGenres(data.genres); 
                 setCast(data.credits.cast); 
                 setTrailer(data.videos.results[0]?.key)
+                setSimilar(data.similar.results)
             }else{
                 <Alert variant="danger">Error</Alert>
             }
@@ -36,10 +40,10 @@ export const FilmPage = () => {
 
     return (
         <div>
-             <Helmet>
+            <Helmet>
                 <style>{'body { background-color: black; }'}</style>
             </Helmet>
-            <div className="details-bg" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${details.backdrop_path})`}}></div>
+            <div className='details-container movie-container' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${details.backdrop_path})`}}>
                 <div className="details-content">
                     <div className="details-content__poster-container mx-5"> 
                         <img className="poster" 
@@ -66,28 +70,29 @@ export const FilmPage = () => {
                         )}
                         <p className="description">{details.overview}</p>
                         <div className="card-btn">
-                            <Button className="trailer-btn" variant="secondary" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
                             <div className="icons">
+                                <a className="details icon-btn mx-2" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon className='play' icon={faPlay} /> Trailer</a>
                                 <a href className="details icon-btn mx-2"><FontAwesomeIcon icon={faHeart} /></a>
                                 <a href className="details icon-btn  mx-2"><FontAwesomeIcon icon={faShare} /> </a>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
-            <div className='cast-container'>
-                <h3>Cast</h3>
+            <div className='scroll-container'>
+                <h4>Cast</h4>
                 {cast && (
-                    <div className="cast-container__content scroller">
+                    <div className="scroll-container__content scroller">
                         {cast.slice(0,22).map(castName => (
                             <Nav.Link as={NavLink} exact={true} to={{pathname:`/cast/${castName.id}`, state: castName.id }} className="hidden-link" >                
-                            <div className="cast-container__card" key={castName.id}>
-                                <div className="cast-container__profile">
-                                    <img className="cast-container__img"
+                            <div className="scroll-container__card" key={castName.id}>
+                                <div className="scroll-container__profile">
+                                    <img className="scroll-container__img"
                                     src={`https://image.tmdb.org/t/p/w500/${castName.profile_path}`}
                                     alt= {castName.name}
                                     />
                                 </div>
-                                <div className="cast-container__name">
+                                <div className="scroll-container__name">
                                     <h6 className="name">{castName.name}</h6>
                                 </div>
                             </div>
@@ -95,8 +100,17 @@ export const FilmPage = () => {
                         ))}
                     </div>
                 )}
-                
             </div>
+            <div className="scroll-container films">
+                <h4>Similar</h4>
+                {similar && (
+                   <div className='scroller' >
+                       {similar.slice(0,15).map(movieresults => (
+                            <ScrollCard movieresults={movieresults} key={movieresults.id}/>
+                        ))}
+                   </div>       
+                )}
+        </div>
         </div>
 
     )

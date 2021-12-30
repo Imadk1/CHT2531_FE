@@ -23,7 +23,7 @@ export const ScrollCard = ({movieresults}) => {
             )}
             </div>
             <div className="scroll-card__title">
-                <h5 className="title">{movieresults.title}</h5>
+                <h6 className="title">{movieresults.title}</h6>
             </div>
         </div>
     )

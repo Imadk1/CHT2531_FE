@@ -53,8 +53,8 @@ export const CastPage = () => {
                         <h5>Biography</h5>
                         <p>{person.biography}</p>
                     </div>
-                    <div className='cast-container'>
-                    <h3>Credits</h3>
+                    <div className='scroll-container films'>
+                    <h4>Credits</h4>
                     {credits && (
                         <div className='scroller' >
                             {credits.slice(0,20).map(movieresults => (

@@ -9,7 +9,7 @@ export const Trending = () => {
     // eslint-disable-next-line
     const [trending, setTrending] = useState([]);
 
-    /*fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false&region=GB`
+    fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false&region=GB`
     )
     .then((res) => res.json())
     .then((data) => {
@@ -18,7 +18,7 @@ export const Trending = () => {
         }else{
             <Alert variant="danger">Error</Alert>
         }
-    })*/
+    })
 
     return (
         <Container fluid className="movie-container">

@@ -161,9 +161,19 @@ body{
         }
 
         .details{
-            font-size: 25px !important;
+
+            border: 3px $orange solid;
+            border-radius: 5px;
+            padding: 8px 20px;
+            text-decoration: none;
+
+            .play {
+                margin-right: 5px;
+            }
             &:hover {
-                color: $mint;
+                color: $dark-grey;
+                background-color: $mint;
+                border-color: $mint;
             }
         }
     }
@@ -177,7 +187,7 @@ body{
     align-items: center;
     margin: 1.5rem auto;
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
         margin: 0.5rem auto;
     }
 }
@@ -199,7 +209,7 @@ body{
         color: $dark-grey !important;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
         flex-direction: row;
         width: 95vw;
         padding:10px;
@@ -220,13 +230,13 @@ body{
     align-items: center;
     border-radius: 5px;
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
         width: 30%;
         height: auto;
     }
 
     .poster {
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             width: 110px;
             border-radius: 5px;
         }
@@ -266,7 +276,7 @@ body{
     justify-content: center;
     align-items: center;
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
         width: 70%;
         align-items: flex-start;
     }
@@ -277,7 +287,7 @@ body{
     }
 
     .mobile-text {
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             text-align: left;
         }
     }
@@ -364,8 +374,7 @@ body{
 
 
 // Film Page
-.details-bg {
-    height: 100vh;
+.details-container {
     position: relative;
     background-position: center;
     background-size: cover;
@@ -394,26 +403,34 @@ body{
 }
 
 .details-content {
-
     display: flex;
     flex-direction: row;
     align-items: center;
     max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -700px;
-    position: relative;
     padding: 0 2rem;
+    margin-bottom: 4rem;
 
     @media (max-width: 650px) {
         flex-direction: column;
+        margin-bottom: 0;
     }
 
 
     .rating {
+        width: 90px;
         color: $dark-grey;
         background-color: $orange;
         padding: 5px 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .star {
+            margin-right: 5px ;
+        }
     }
 
     &__poster-container {
@@ -421,13 +438,15 @@ body{
         border-radius: 5px;
         z-index: 1;
         margin-top: 3rem;
-        
+
+        @media (max-width: 600px) {
+        }
 
         .poster {
             height: 500px;
 
             @media (max-width: 600px) {
-                height: 200px;
+                height: 270px !important;
             }
         }
     }
@@ -441,7 +460,7 @@ body{
         width: 550px;
 
         @media (max-width: 600px) {
-            width: 100%;
+            width: 96vw;
             margin: 10px;
             padding: 10px;
             align-items: center;
@@ -451,7 +470,7 @@ body{
             display: flex;
             align-items: center;
 
-            @media (max-width: 480px) {
+            @media (max-width: 600px) {
                flex-direction: column-reverse;
             }
             
@@ -460,9 +479,11 @@ body{
         .title{
             color: $off-white;
             margin: 15px;
+            font-weight: 600;
 
             @media (max-width: 600px) {
                 text-align: center;
+                margin: 1rem 0 0 0;
             }
         }
         .genres-container{
@@ -482,6 +503,10 @@ body{
                 font-size: 14px;
                 color: $dark-grey;
                 width: max-content;
+
+                @media (max-width: 600px) {
+                    font-size: 12px;
+                }
             }
         }
 
@@ -489,49 +514,46 @@ body{
             color: $off-white;
             margin-top: 0.5rem;
 
-            @media (max-width: 480px) {
+            @media (max-width: 600px) {
                 text-align: center;
             }
-        }
-
-        .trailer-btn{
-            padding: 5px 20px;
-        }
-        
+        }        
     }
 }
 
-.cast-container {
-    margin-left: auto;
+// Scroll card
+.scroll-container {
+    margin-left: 10px;
     margin-right: auto;
-    padding: 10px;
-    margin: 10px 10px;
+    margin-top: 1rem;
+    padding: 1rem;
+    display: flex;
     position: relative;
+    flex-direction: column;
+    justify-content: center;
     
-    h3{
-        color: $orange;
+    h4{
+        color: $mint;
         font-weight: 600;
     }
 
     &__card {
-        margin-right: 10px;
+        margin: 10px 10px 10px 0px;
         width: 150px;
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             width: 130px;
         }
     }
 
     &__profile {
         border: solid 5px $off-white;
+        border-radius: 5px;
     }
 
     &__img {
         width: 100%;
         
-        @media (max-width: 480px) {
-            width: 100%;
-        }
     }
 
     &__name {
@@ -543,7 +565,38 @@ body{
     }
 }
 
-// Scroll card
+
+.films {
+    background-color: $off-white;
+    margin: 0px !important;
+
+    h4 {
+        color: $dark-grey !important;
+    }
+}
+
+.scroller {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+    -webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+
+    @media (max-width: 600px) {
+        width: 92vw;
+    }
+}
 
 .scroll-card {
     margin: 10px 10px 10px 0px;
@@ -559,6 +612,11 @@ body{
 
         .poster{
             width: 200px;
+
+            @media (max-width: 600px) {
+                width: 150px;
+            }
+            
         }
     }
 
@@ -569,6 +627,7 @@ body{
         
         .title {
             font-weight: 600;
+            color: $dark-grey;
         }
         
     }
@@ -603,6 +662,7 @@ body{
         justify-content: center;
         align-items: center;
         margin: 20px;
+        width: 100vw;
 
         h3{
             color: $dark-blue;
@@ -656,33 +716,7 @@ body{
 
 }
 
-
-
 // Other styling
-
-.scroller {
-    display: flex;
-    flex-direction: row;
-    width: 98vw;
-    align-items: center;
-    justify-content: flex-start;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    -webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 7px;
-    }
-    -webkit-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(0, 0, 0, .5);
-        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-    }
-
-    @media (max-width: 600px) {
-        width: 93vw;
-    }
-}
-
 .page-title {
     display: flex;
     justify-content: center;

@@ -63,7 +63,7 @@ export const Search = () => {
                             {sayt.length > 0 && (
                                 <ListGroup className="sayt" style={{ display: show ? "block" : "none" }}>
                                     {sayt.map(suggestions => (
-                                        <ListGroup.Item action type="submit" onClick={onSubmit} value={query}>
+                                        <ListGroup.Item action type="submit" onClick={onSubmit} value={suggestions.title}>
                                             {suggestions.title}
                                         </ListGroup.Item>
                                     ))}
