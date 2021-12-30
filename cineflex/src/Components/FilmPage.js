@@ -14,22 +14,36 @@ export const FilmPage = () => {
     const [genres, setGenres] = useState([]);
     const [cast, setCast] = useState([]);
     const [trailer, setTrailer] = useState();
-    const [similar, setSimilar] = useState([]);
+    const [recommendations, setRecommendations] = useState([]);
+    const [watch, setWatch] = useState([]);
     const location = useLocation();    
 
     useEffect( () => { 
-        fetch(`https://api.themoviedb.org/3/movie/${location.state}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&append_to_response=release_dates,videos,credits,watch/providers,similar&region=GB`)
+        fetch(`https://api.themoviedb.org/3/movie/${location.state}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&append_to_response=release_dates,videos,credits,recommendations&region=GB`)
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
                 console.log(location.state)
                 console.log(data)
                 setDetails(data); 
-                console.log(data.release_dates.results) 
                 setGenres(data.genres); 
                 setCast(data.credits.cast); 
                 setTrailer(data.videos.results[0]?.key)
-                setSimilar(data.similar.results)
+                setRecommendations(data.recommendations.results)
+            }else{
+                <Alert variant="danger">Error</Alert>
+            }
+        })
+    // eslint-disable-next-line
+    }, [])
+    
+    useEffect( () => { 
+        fetch(`https://api.themoviedb.org/3/movie/${location.state}/watch/providers?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&region=GB`)
+        .then((res) => res.json())
+        .then((data) => {
+            if (!data.errors) {
+                console.log(data)
+                setWatch(data.results.GB.flatrate)
             }else{
                 <Alert variant="danger">Error</Alert>
             }
@@ -76,6 +90,20 @@ export const FilmPage = () => {
                                 <a href className="details icon-btn  mx-2"><FontAwesomeIcon icon={faShare} /> </a>
                             </div>
                         </div>
+                        {watch && (
+                            <div className='watch-icons'>  
+                             <h5>Where To Watch</h5>
+                                <div className='watch-icons__container'>
+                                    {watch.map(watchProvider => (
+                                        <img 
+                                            className='watch-icons__logo' 
+                                            src={`https://image.tmdb.org/t/p/original/${watchProvider.logo_path}`}
+                                            alt= {watchProvider.provider_name}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -102,15 +130,15 @@ export const FilmPage = () => {
                 )}
             </div>
             <div className="scroll-container films">
-                <h4>Similar</h4>
-                {similar && (
+                <h4>Recommended</h4>
+                {recommendations && (
                    <div className='scroller' >
-                       {similar.slice(0,15).map(movieresults => (
+                       {recommendations.slice(0,15).map(movieresults => (
                             <ScrollCard movieresults={movieresults} key={movieresults.id}/>
                         ))}
                    </div>       
                 )}
-        </div>
+            </div>
         </div>
 
     )
