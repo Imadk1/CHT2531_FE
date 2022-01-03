@@ -26,6 +26,8 @@ export const CustomPagination = ({setPage, numOfPages = 15}) => {
                 onChange={(e) => handlePageChange(e.target.textContent)}
                 count={numOfPages}
                 color="primary"
+                hideNextButton = "true"
+                hidePrevButton = "true"
             />
             </MuiThemeProvider>
         </div>
