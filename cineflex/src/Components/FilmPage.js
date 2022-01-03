@@ -90,19 +90,20 @@ export const FilmPage = () => {
                                 <a href className="details icon-btn  mx-2"><FontAwesomeIcon icon={faShare} /> </a>
                             </div>
                         </div>
+                        <div className='watch-icons scroller-container'>  
+                        <h5>Where To Watch</h5>
                         {watch && (
-                            <div className='watch-icons'>  
-                             <h5>Where To Watch</h5>
-                                <div className='watch-icons__container'>
-                                    {watch.map(watchProvider => (
-                                        <img 
-                                            className='watch-icons__logo' 
-                                            src={`https://image.tmdb.org/t/p/original/${watchProvider.logo_path}`}
-                                            alt= {watchProvider.provider_name}/>
-                                    ))}
-                                </div>
+                            <div className='scroller'>
+                                {watch.map(watchProvider => (
+                                    <img 
+                                        className='watch-icons__logo' 
+                                        src={`https://image.tmdb.org/t/p/original/${watchProvider.logo_path}`}
+                                        alt= {watchProvider.provider_name}
+                                    />
+                                ))}
                             </div>
                         )}
+                        </div>
                     </div>
                 </div>
             </div>

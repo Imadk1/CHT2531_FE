@@ -1,50 +1,43 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// eslint-disable-next-line
-import { Alert, Col, Row, ListGroup, Container } from 'react-bootstrap';
+import { Alert, Col, Row, Container } from 'react-bootstrap';
 import { MovieCard } from '../Components/MovieCard';
+import {CustomPagination} from '../Components/CustomPagination';
+
 
 export const Search = () => {
+    const [page, setPage] = useState (1);
+    const [numPage, setNumPage] = useState ();
     const [query, setQuery] = useState("");
     const [movies, setMovies] = useState([]);
-    const [show, setShow] = useState(true);
-    // eslint-disable-next-line
-    const [sayt, setSayt] = useState([]);
     const onChange = e => {
         e.preventDefault();
         setQuery(e.target.value);
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false&query=${e.target.value}`
-        )
-        .then((res) => res.json())
-        .then((data) => {
-            if (!data.errors) {
-                console.log(data)
-                setSayt(data.results);   
-            }else{
-                <Alert variant="danger">Error</Alert>
-            }
-        })
+
     }
+
     const onSubmit = e => {
-        e.preventDefault();
-        setQuery(e.target.value);
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&include_adult=false&query=${e.target.value}`
+        e && e.preventDefault() && setQuery(e.target.value);
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&page=${page}&language=en-US&include_adult=false&query=${e ? e.target.value : query}`
         )
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
                 console.log(data)
                 setMovies(data.results);   
+                console.log(query)
+                setNumPage(data.total_pages)
             }else{
                 <Alert variant="danger">Error</Alert>
             }
         });
-        setShow((s) => !s)
     }
 
-    const saytShow = e => {
-        setShow((s) => !s)
-    }
+    useEffect(() => {
+        onSubmit();
+        // eslint-disable-next-line
+    }, [page])
+
     
     return (
         <div>
@@ -52,23 +45,13 @@ export const Search = () => {
             <div className="row height d-flex justify-content-center align-items-center">
                 <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 my-4">
                     <form onSubmit={onSubmit} value={query}>
-                        <div className="search"> <i className="fa fa-search" onClick={saytShow}></i> 
+                        <div className="search"> <i className="fa fa-search"></i> 
                             <input 
                                 type="text" 
                                 className="form-control" 
                                 placeholder="Search for a movie..." 
                                 onChange={onChange}
-                                onClick={saytShow}
-                            /> 
-                            {sayt.length > 0 && (
-                                <ListGroup className="sayt" style={{ display: show ? "block" : "none" }}>
-                                    {sayt.map(suggestions => (
-                                        <ListGroup.Item action type="submit" onClick={onSubmit} value={suggestions.title}>
-                                            {suggestions.title}
-                                        </ListGroup.Item>
-                                    ))}
-                                </ListGroup>
-                            )}
+                            />
 
                             <button type="submit" onClick={onSubmit} value={query} className="search-button btn btn-primary">Search</button> 
                         </div>
@@ -88,6 +71,8 @@ export const Search = () => {
                    </Row>    
                  )}
             </Container>
+            <CustomPagination setPage={setPage} numOfPages={numPage} />
+
         </div>
         
         

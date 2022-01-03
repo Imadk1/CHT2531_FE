@@ -1,36 +1,43 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // eslint-disable-next-line
 import { Alert, Col, Container, Row } from 'react-bootstrap';
 import { MovieCard } from '../Components/MovieCard';
+import { CustomPagination } from '../Components/CustomPagination';
 
 export const MostPopular = () => {
     // eslint-disable-next-line
+    const [page, setPage] = useState(1)
     const [popular, setPopular] = useState([]);
 
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1&language=en-US&region=GB`
-    )
-    .then((res) => res.json())
-    .then((data) => {
-        if (!data.errors) {
-            setPopular(data.results);   
-        }else{
-            <Alert variant="danger">Error</Alert>
-        }
-    })
+    useEffect (() => {
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=${page}&language=en-US&include_adult=false&region=GB`
+        )
+        .then((res) => res.json())
+        .then((data) => {
+            if (!data.errors) {
+                setPopular(data.results);   
+            }else{
+                <Alert variant="danger">Error</Alert>
+            }
+        })
+    },[page])
 
     return (
         <Container fluid className="movie-container">
             <h1 className="page-title">Popular Movies</h1>
-                {popular && (
-                   <Row>
-                       {popular.map(movieresults => (
-                            <Col className="movie-grid" key={movieresults.id}>
-                                <MovieCard movieresults={movieresults}/>
-                            </Col>
-                        ))}
-                   </Row>       
-                )}
+            {popular && (
+               <Row>
+                   {popular.map(movieresults => (
+                        <Col className="movie-grid" key={movieresults.id}>
+                            <MovieCard movieresults={movieresults}/>
+                        </Col>
+                    ))}
+               </Row>       
+            )}
+
+            <CustomPagination setPage={setPage} />
+
         </Container>
     )
 }
