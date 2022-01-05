@@ -42,23 +42,23 @@ export const Search = () => {
     return (
         <div>
             <div className="search-container">
-            <div className="row height d-flex justify-content-center align-items-center">
-                <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 my-4">
-                    <form onSubmit={onSubmit} value={query}>
-                        <div className="search"> <i className="fa fa-search"></i> 
-                            <input 
-                                type="text" 
-                                className="form-control" 
-                                placeholder="Search for a movie..." 
-                                onChange={onChange}
-                            />
+                <div className="row height d-flex justify-content-center align-items-center">
+                    <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 my-4">
+                        <form onSubmit={onSubmit} value={query}>
+                            <div className="search"> <i className="fa fa-search"></i> 
+                                <input 
+                                    type="text" 
+                                    className="form-control" 
+                                    placeholder="Search for a movie..." 
+                                    onChange={onChange}
+                                />
 
-                            <button type="submit" onClick={onSubmit} value={query} className="search-button btn btn-primary">Search</button> 
-                        </div>
-                    </form>
-                    
+                                <button type="submit" onClick={onSubmit} value={query} className="search-button btn btn-primary">Search</button> 
+                            </div>
+                        </form>
+                        
+                    </div>
                 </div>
-            </div>
             </div>
             <Container fluid className="movie-grid">
                  {movies.length > 0 && (

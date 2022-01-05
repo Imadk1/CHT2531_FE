@@ -24,7 +24,7 @@ export const MostPopular = () => {
     },[page])
 
     return (
-        <Container fluid className="movie-container">
+        <Container fluid className="mt">
             <h1 className="page-title">Popular Movies</h1>
             {popular && (
                <Row>

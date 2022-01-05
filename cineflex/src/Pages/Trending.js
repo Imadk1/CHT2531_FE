@@ -24,7 +24,7 @@ export const Trending = () => {
     },[page])
 
     return (
-        <Container fluid className="movie-container">
+        <Container fluid className="mt">
             <h1 className="page-title">Trending</h1>
             {trending && (
                 <Row>

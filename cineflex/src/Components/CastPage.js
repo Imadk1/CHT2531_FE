@@ -26,7 +26,7 @@ export const CastPage = () => {
 
     return (
         <div>
-            <div className="person-info movie-container">
+            <div className="person-info mt">
                 <div className="person-info_poster"> 
                     <img className="poster" 
                     src={`https://image.tmdb.org/t/p/w300/${person.profile_path}`} 

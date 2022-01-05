@@ -14,7 +14,7 @@ body{
 
 // Container
 
-.movie-container {
+.mt {
     margin-top: 3rem;
 }
 
@@ -189,6 +189,7 @@ body{
 
     @media (max-width: 600px) {
         margin: 0.5rem auto;
+        padding: 0;
     }
 }
 
@@ -203,6 +204,7 @@ body{
     border-radius: 10px;
     position: relative;
     color: $off-white;
+    box-shadow: 8px 8px 15px rgb(39 57 99 / 30%);
 
     &:hover {
         background-color: $mint;
@@ -569,10 +571,10 @@ body{
 
     &__card {
         margin: 10px 10px 10px 0px;
-        width: 150px;
+        width: 140px;
 
         @media (max-width: 600px) {
-            width: 130px;
+            width: 120px;
         }
     }
 
@@ -633,16 +635,17 @@ body{
 }
 
 .scroll-card {
-    margin: 10px 10px 10px 0px;
+    margin: 10px 21px 10px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
     &__poster {
-        border: solid 7px $mint;
+        border: solid 7px $white;
         border-radius: 5px;
         margin-bottom: 10px;
+        box-shadow: 8px 8px 15px rgb(39 57 99 / 30%);
 
         .poster{
             width: 200px;
@@ -655,7 +658,7 @@ body{
     }
 
     &__title {
-        height: 3em;
+        height: 4em;
         overflow: hidden;
         text-align: center;
         

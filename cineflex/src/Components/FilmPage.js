@@ -57,7 +57,7 @@ export const FilmPage = () => {
             <Helmet>
                 <style>{'body { background-color: black; }'}</style>
             </Helmet>
-            <div className='details-container movie-container' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${details.backdrop_path})`}}>
+            <div className='details-container mt' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${details.backdrop_path})`}}>
                 <div className="details-content">
                     <div className="details-content__poster-container mx-5"> 
                         <img className="poster" 
