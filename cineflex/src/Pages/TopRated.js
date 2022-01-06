@@ -10,7 +10,7 @@ export const TopRated = () => {
     const [TopRated, setTopRated] = useState([]);
 
     useEffect (()=>{
-        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&region=GB`
+        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&page=${page}&language=en-US&page=1&region=GB`
         )
         .then((res) => res.json())
         .then((data) => {
