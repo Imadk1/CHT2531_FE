@@ -15,52 +15,8 @@ body{
 // Container
 
 .mt {
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
-
-.search-container {
-    margin: 3rem 1rem 0rem 1rem;
-}
-
-// Search 
-
-.search {
-    position: relative;
-    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
-
-    input {
-        height: 60px;
-        text-indent: 5px;
-        border: 2px solid #d6d4d4;
-    
-        &:focus{
-            box-shadow: none;
-            border: 2px $mint solid;
-        }
-    }
-
-    .fa-search {
-        position: absolute;
-        top: 20px;
-        left: 16px
-    }
-
-    .search-button {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        height: 50px;
-        width: 75px;
-    }
-
-    .sayt {
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-    }
-    
-}
-
 //Nav
 .nav-logo {
     width: 160px;
@@ -90,14 +46,27 @@ body{
     font-weight: 600;
 }
 
+.c-logo {
+    width: 20%;
+}
+
+.search-bar {
+    width: 55%;
+
+    @media (max-width: 600px) {
+        width: 100%;
+        margin: 1rem 0 !important;
+    }
+}
+
 //Btn
 .btn-primary {
-    background-color: $mint;
+    background-color: $mint !important;
     color: $dark-grey !important;
     border: $mint;
 
     &:hover {
-        background-color: $dark-mint;
+        background-color: $dark-mint !important;
         color: $dark-grey !important;
     }
 
@@ -583,7 +552,7 @@ body{
     
         .scroller-link {
             text-decoration: none !important;
-            color: $orange !important;
+            color: $dark-blue!important;
         }
     }
 
@@ -793,4 +762,9 @@ body{
     padding: 30px 20px 0px;
     font-weight: 700;
     color: $dark-blue;
+    text-align: center;
+
+    @media (max-width: 600px) {
+        font-size: 22px;
+    }
 }
