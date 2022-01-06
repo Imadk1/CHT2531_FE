@@ -42,8 +42,8 @@ export const NavBar = () => {
                         </Form> 
                         <Nav className='ms-auto'>
                             <Nav.Link className="nav-item me-1" as={NavLink} exact={true} activeClassName='is-active' to="/">Home</Nav.Link>
-                            <Nav.Link className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/now_playing">Now Playing</Nav.Link>
-                            <Nav.Link className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/top_rated">Top Rated</Nav.Link>
+                            <Nav.Link className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/now-playing">Now Playing</Nav.Link>
+                            <Nav.Link className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/top-rated">Top Rated</Nav.Link>
                             <Nav.Link className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/popular">Most Popular</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

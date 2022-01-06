@@ -31,10 +31,10 @@ function App() {
         <Route exact path="/upcoming">
            <Upcoming />
         </Route>
-        <Route exact path="/now_playing">
+        <Route exact path="/now-playing">
            <NowPlaying />
         </Route>
-        <Route exact path="/top_rated">
+        <Route exact path="/top-rated">
            <TopRated />
         </Route>
         <Route exact path="/search">
