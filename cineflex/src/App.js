@@ -4,9 +4,13 @@ import {NavBar} from './Components/NavBar';
 import { Home } from './Pages/Home';
 import { Trending } from './Pages/Trending';
 import { MostPopular } from './Pages/MostPopular';
+import { Upcoming } from './Pages/Upcoming';
+import { NowPlaying } from './Pages/NowPlaying';
+import { TopRated } from './Pages/TopRated';
 import { Search } from './Pages/Search';
 import {FilmPage} from './Components/FilmPage';
 import {CastPage} from './Components/CastPage'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './sass/custom.scss';
 
 function App() {
@@ -23,6 +27,15 @@ function App() {
         </Route>
         <Route exact path="/popular">
            <MostPopular />
+        </Route>
+        <Route exact path="/upcoming">
+           <Upcoming />
+        </Route>
+        <Route exact path="/now_playing">
+           <NowPlaying />
+        </Route>
+        <Route exact path="/top_rated">
+           <TopRated />
         </Route>
         <Route exact path="/search">
            <Search />

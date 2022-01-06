@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useLocation } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert, Col, Row, Container } from 'react-bootstrap';
 import { MovieCard } from '../Components/MovieCard';
@@ -10,10 +11,28 @@ export const Search = () => {
     const [numPage, setNumPage] = useState ();
     const [query, setQuery] = useState("");
     const [movies, setMovies] = useState([]);
+    const location = useLocation();    
+  
+    useEffect(() => {
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&page=${page}&language=en-US&include_adult=false&query=${location.state}`
+        )
+        .then((res) => res.json())
+        .then((data) => {
+            if (!data.errors) {
+                console.log(data)
+                setMovies(data.results);   
+                console.log(query)
+                setNumPage(data.total_pages)
+            }else{
+                <Alert variant="danger">Error</Alert>
+            }
+        });
+     // eslint-disable-next-line
+    }, [])
+
     const onChange = e => {
         e.preventDefault();
         setQuery(e.target.value);
-
     }
 
     const onSubmit = e => {

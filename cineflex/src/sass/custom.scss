@@ -66,6 +66,10 @@ body{
     width: 160px;
 }
 
+.light {
+    background-color: $off-white;
+}
+
 .dark {
     background-color: $dark-blue;
 }
@@ -89,11 +93,12 @@ body{
 //Btn
 .btn-primary {
     background-color: $mint;
-    color: $dark-grey;
+    color: $dark-grey !important;
     border: $mint;
 
     &:hover {
         background-color: $dark-mint;
+        color: $dark-grey !important;
     }
 
     &:active {
@@ -567,6 +572,19 @@ body{
     h4{
         color: $mint;
         font-weight: 600;
+        margin: 0;
+    }
+
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px;
+    
+        .scroller-link {
+            text-decoration: none !important;
+            color: $orange !important;
+        }
     }
 
     &__card {
@@ -762,6 +780,13 @@ body{
     margin: 10px 0;
 }
 // Other styling
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .page-title {
     display: flex;
     justify-content: center;

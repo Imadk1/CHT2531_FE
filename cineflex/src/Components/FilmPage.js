@@ -18,6 +18,7 @@ export const FilmPage = () => {
     const [watch, setWatch] = useState([]);
     const location = useLocation();    
 
+    
     useEffect( () => { 
         fetch(`https://api.themoviedb.org/3/movie/${location.state}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&append_to_response=release_dates,videos,credits,recommendations&region=GB`)
         .then((res) => res.json())

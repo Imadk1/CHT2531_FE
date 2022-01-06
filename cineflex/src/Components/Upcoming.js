@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import { Alert } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { ScrollCard } from './ScrollCard';
 
 export const Upcoming = () => {
@@ -21,7 +22,10 @@ export const Upcoming = () => {
 
     return (
         <div className="scroll-container films">
-                <h4>Upcoming</h4>
+                <div className='scroll-container__heading'>
+                    <h4>Now Playing</h4>
+                    <Link className='scroller-link' to={"/upcoming"}>See More</Link>
+                </div>
                 {upcoming && (
                    <div className='scroller' >
                        {upcoming.slice(0,15).map(movieresults => (
