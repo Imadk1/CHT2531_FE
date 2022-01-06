@@ -24,7 +24,7 @@ export const Upcoming = () => {
         <div className="scroll-container films">
                 <div className='scroll-container__heading'>
                     <h4>Upcoming</h4>
-                    <Link className='scroller-link' to={"/upcoming"}>See More</Link>
+                    {/*<Link className='scroller-link' to={"/upcoming"}>See More</Link>*/}
                 </div>
                 {upcoming && (
                    <div className='scroller' >

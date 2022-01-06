@@ -24,7 +24,7 @@ export const TopRated = () => {
 
     return (
         <Container fluid className="mt">
-            <h1 className="page-title">Top Rated</h1>
+            <h3 className="page-title">Top Rated</h3>
             {TopRated && (
                 <Row>
                    {TopRated.map(movieresults => (

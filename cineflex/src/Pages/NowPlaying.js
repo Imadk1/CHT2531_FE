@@ -24,7 +24,7 @@ export const NowPlaying = () => {
 
     return (
         <Container fluid className="mt">
-            <h1 className="page-title">Now Playing In Theaters</h1>
+            <h3 className="page-title">Now Playing In Theaters</h3>
             {nowPlaying && (
                 <Row>
                    {nowPlaying.map(movieresults => (

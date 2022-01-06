@@ -32,7 +32,7 @@ export const Search = () => {
     return (
         <div>
             <Container fluid className="mt">
-                <h1 className='page-title'>Results for '{location.state}'</h1>
+                <h3 className='page-title'>Results for '{location.state}'</h3>
                  {movies.length > 0 && (
                    <Row>
                        {movies.map(movieresults => (
