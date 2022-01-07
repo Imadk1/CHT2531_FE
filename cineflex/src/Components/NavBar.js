@@ -3,6 +3,8 @@ import {Navbar, Nav, Container, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../Assets/logo-white.svg'
 import {NavLink, useHistory} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch} from '@fortawesome/free-solid-svg-icons';
 
 export const NavBar = () => {
     let [query, setQuery] = useState("")
@@ -21,7 +23,7 @@ export const NavBar = () => {
                             <input
                                 type='search'
                                 placeholder='Search for a film'
-                                className='form-control me-2'
+                                className='form-control me-2 fa fa-search'
                                 aria-label='Search for a movie'
                                 onChange={e => setQuery(e.target.value)} 
                                 onKeyPress={(e) => {
@@ -30,14 +32,13 @@ export const NavBar = () => {
                                     }
                                 }}
                             />
-                            <i className="fa fa-search"></i>
                             <Nav.Link 
                                 as={NavLink} 
                                 exact={true} 
                                 to={{pathname:`/search`, state: `${query}` }} 
                                 className="search-button center btn btn-primary"
                                 >
-                                Search
+                                <FontAwesomeIcon icon={faSearch} className='me-1' />
                             </Nav.Link>                
                         </Form> 
                         <Nav className='ms-auto'>
