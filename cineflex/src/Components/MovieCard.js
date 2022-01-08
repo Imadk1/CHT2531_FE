@@ -40,7 +40,9 @@ export const MovieCard = ({movieresults}) => {
             )}
             </div>
             <div className="content-container center">
-                <h2 className="title mobile-text">{movieresults.title}</h2>
+                <Nav.Link as={NavLink} exact={true} to={{pathname:`/film/${movieresults.id}`, state: movieresults.id }} className="hidden-link" >                
+                    <h2 className="title mobile-text">{movieresults.title}</h2>
+                </Nav.Link>
                 <p className="desc mobile-text">{movieresults.release_date}</p>
                 <div className="card-btn">
                     <Button className="btn btn-secondary watch-btn" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>

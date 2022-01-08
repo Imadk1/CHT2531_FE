@@ -235,6 +235,11 @@ body{
 
 .hidden-link {
     padding: 0 !important;
+    color: inherit !important;
+
+    &:hover {
+        color: inherit !important;
+    }
 }
 
 .poster-container {
@@ -288,7 +293,7 @@ body{
 
     @media (max-width: 600px) {
         width: 70%;
-        align-items: flex-start;
+        align-items: flex-start !important;
     }
     
     .title {
