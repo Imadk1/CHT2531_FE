@@ -163,10 +163,6 @@ body{
     }    
 
     .icons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    
         .icon-btn {
             color: $orange;
             font-size: 18px;
@@ -263,10 +259,7 @@ body{
         
     }
     .rating {
-        display: flex;
         padding: 5px 15px;
-        justify-content: center;
-        align-items: center;
         color: $dark-grey;
         background-color: $orange;
         box-shadow:  
@@ -289,12 +282,9 @@ body{
 }
 
 .content-container {
-    display: flex;
     flex-direction: column;
     text-align: center;
     padding: 10px;
-    justify-content: center;
-    align-items: center;
 
     @media (max-width: 600px) {
         width: 70%;
@@ -343,9 +333,6 @@ body{
 .carousel-caption {
     position: absolute;
     top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
     height: 100%;
     z-index: 2;
@@ -437,16 +424,12 @@ body{
         margin-bottom: 0;
     }
 
-
     .rating {
         width: 90px;
         color: $dark-grey;
         background-color: $orange;
         padding: 5px 15px;
-        display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
 
         .star {
             margin-right: 5px ;
@@ -488,25 +471,44 @@ body{
         }
 
         .header {
-            display: flex;
-            align-items: center;
 
             @media (max-width: 600px) {
                flex-direction: column-reverse;
             }
+
+            .title{
+                color: $off-white;
+                font-weight: 600;
+                margin: 0;
+    
+                @media (max-width: 600px) {
+                    margin-right: 1rem 0 0 0;
+                    text-align: center;
+                }
+            }       
             
-        }
+            .film-att {
+                margin-left: 15px;
 
-        .title{
-            color: $off-white;
-            margin: 15px;
-            font-weight: 600;
+                @media (max-width: 600px) {
+                    margin-bottom: 15px;
+                }
 
-            @media (max-width: 600px) {
-                text-align: center;
-                margin: 1rem 0 0 0;
+                .certification-container {  
+                    border: 3px solid $mint;
+                    border-radius: 50px;
+                    width: 50px;
+                    height: 50px;
+                }
+    
+                .certification {
+                    margin: 0;
+                    color: $off-white;
+                    text-align: center;
+                }
             }
         }
+
         .genres-container{
             display: flex;
             justify-content: space-between;
@@ -526,7 +528,7 @@ body{
                 width: max-content;
 
                 @media (max-width: 600px) {
-                    font-size: 12px;
+                    font-size: 13px;
                 }
             }
         }
@@ -554,18 +556,20 @@ body{
 
             h5 {
                 color: $off-white;
+                margin: 10px 0 ;
+
+
             }
             
-            &__container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-            }
             &__logo {
                 width: 70px;
-                margin-right: 1rem;
+                margin-right: 15px;
                 margin-top: 10px;
+
+                @media (max-width: 600px) {
+                    width: 55px;
+                    margin: 10px;
+                }
             }
         }
     }
@@ -667,9 +671,6 @@ body{
 
 .scroll-card {
     margin: 10px 21px 10px 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 
     &__poster {
@@ -706,10 +707,7 @@ body{
 //Person Page
 
 .person-info {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 3rem;
     
     &_poster {
@@ -725,10 +723,7 @@ body{
     }
 
     &__details {    
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         margin: 20px;
         width: 100vw;
 
@@ -755,9 +750,6 @@ body{
             }
 
             .details {
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 flex-direction: column;
                 margin: 10px;
 
@@ -786,9 +778,6 @@ body{
 
 // Pagination
 .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     margin: 10px 0;
 }

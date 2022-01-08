@@ -35,7 +35,7 @@ export const MovieCarousel = () => {
             src={`https://image.tmdb.org/t/p/original/${heroitems.backdrop_path}`} 
             alt={heroitems.title}
             />
-            <Carousel.Caption>
+            <Carousel.Caption className='center'>
             <div className="d-flex flex-column details">
                     <h3 className="hero-title">{heroitems.title}</h3>
                     <p>{heroitems.overview}</p>

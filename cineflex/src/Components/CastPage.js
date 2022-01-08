@@ -26,25 +26,25 @@ export const CastPage = () => {
 
     return (
         <div>
-            <div className="person-info mt">
+            <div className="person-info center mt">
                 <div className="person-info_poster"> 
                     <img className="poster" 
                     src={`https://image.tmdb.org/t/p/w300/${person.profile_path}`} 
                         alt= {person.name}
                     />
                 </div>
-                <div className="person-info__details">
+                <div className="person-info__details center">
                     <h2 className='title'>{person.name}</h2>
                     <div className='personal'>
-                        <div className='details'>
+                        <div className='details center'>
                             <p className='header'>D.O.B</p>
                             <p>{person.birthday}</p>
                         </div>
-                        <div className='details'>
+                        <div className='details center'>
                             <p className='header'>Place of birth</p>
                             <p>{person.place_of_birth}</p>
                         </div>
-                        <div className='details'>
+                        <div className='details center'>
                             <p className='header'>Known for</p>
                             <p>{person.known_for_department}</p>
                         </div>

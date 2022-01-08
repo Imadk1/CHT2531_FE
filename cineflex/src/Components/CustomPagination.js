@@ -20,7 +20,7 @@ export const CustomPagination = ({setPage, numOfPages = 15}) => {
     
 
     return (
-        <div className='pagination'>
+        <div className='pagination center'>
             <MuiThemeProvider theme={cineFlex}>
                 <Pagination 
                 onChange={(e) => handlePageChange(e.target.textContent)}

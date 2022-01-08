@@ -6,7 +6,7 @@ import {NavLink} from 'react-router-dom';
 export const ScrollCard = ({movieresults}) => {
     
     return (
-        <div className="scroll-card">
+        <div className="scroll-card center">
             <div className="scroll-card__poster">
             {movieresults.poster_path ? (
                 <Nav.Link as={NavLink} exact={true} to={{pathname:`/film/${movieresults.id}`, state: movieresults.id }} className="hidden-link" >                

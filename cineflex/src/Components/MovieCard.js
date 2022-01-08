@@ -21,7 +21,7 @@ export const MovieCard = ({movieresults}) => {
     return (
         <div className="movie-card">
             <div className="poster-container">
-                <span className="rating translate-middle rounded-pill">
+                <span className="rating center translate-middle rounded-pill">
                     <FontAwesomeIcon icon={faStar} className="star"/>
                     {movieresults.vote_average}
                 </span>
@@ -39,12 +39,12 @@ export const MovieCard = ({movieresults}) => {
                 />
             )}
             </div>
-            <div className="content-container">
+            <div className="content-container center">
                 <h2 className="title mobile-text">{movieresults.title}</h2>
                 <p className="desc mobile-text">{movieresults.release_date}</p>
                 <div className="card-btn">
                     <Button className="btn btn-secondary watch-btn" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
-                    <div className="icons">
+                    <div className="icons center">
                         <a href className="icon-btn"><FontAwesomeIcon icon={faHeart} /></a>
                         <a href className="icon-btn"><FontAwesomeIcon icon={faShare} /> </a>
                     </div>

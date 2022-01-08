@@ -17,6 +17,7 @@ export const FilmPage = () => {
     const [recommendations, setRecommendations] = useState([]);
     const [watch, setWatch] = useState([]);
     const location = useLocation();    
+    const [certification, setCertification] = useState([]);
 
     
     useEffect( () => { 
@@ -31,6 +32,7 @@ export const FilmPage = () => {
                 setCast(data.credits.cast); 
                 setTrailer(data.videos.results[0]?.key)
                 setRecommendations(data.recommendations.results)
+                setCertification((data.release_dates.results.filter(x=>x.iso_3166_1==="GB")[0].release_dates[0].certification))
             }else{
                 <Alert variant="danger">Error</Alert>
             }
@@ -67,11 +69,16 @@ export const FilmPage = () => {
                         />
                     </div>
                     <div className="details-content__info">
-                        <div className="header mb-1">
+                        <div className="header center mb-1">
                             <h3 className="title">{details.title}</h3>
-                            <div className="rating translate-left rounded-pill mx-3">
-                                <FontAwesomeIcon icon={faStar} className="star"/>
-                                {details.vote_average}
+                            <div className='film-att center'>
+                                <div className='certification-container center'>
+                                    <p className='certification'>{certification}</p>
+                                </div>
+                                <div className="rating center translate-left rounded-pill mx-3">
+                                    <FontAwesomeIcon icon={faStar} className="star"/>
+                                    {details.vote_average}
+                                </div>
                             </div>
                         </div>
                         {genres && (
@@ -85,8 +92,8 @@ export const FilmPage = () => {
                         )}
                         <p className="description">{details.overview}</p>
                         <div className="card-btn">
-                            <div className="icons">
-                                <a className="details icon-btn mx-2" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon className='play' icon={faPlay} /> Trailer</a>
+                            <div className="icons center">
+                                <a className="details icon-btn me-2" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon className='play' icon={faPlay} /> Trailer</a>
                                 <a href className="details icon-btn mx-2"><FontAwesomeIcon icon={faHeart} /></a>
                                 <a href className="details icon-btn  mx-2"><FontAwesomeIcon icon={faShare} /> </a>
                             </div>
