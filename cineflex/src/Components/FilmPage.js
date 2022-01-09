@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faPlay, faHeart, faShare} from '@fortawesome/free-solid-svg-icons'
 import {Helmet} from "react-helmet";
 import { ScrollCard } from './ScrollCard';
-
+import placeholder from '../Assets/Cast-P.png'
 import { Alert } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
@@ -32,7 +32,8 @@ export const FilmPage = () => {
                 setCast(data.credits.cast); 
                 setTrailer(data.videos.results[0]?.key)
                 setRecommendations(data.recommendations.results)
-                setCertification((data.release_dates.results.filter(x=>x.iso_3166_1==="GB")[0].release_dates[0].certification))
+                setCertification((data.release_dates.results.filter(x=>x.iso_3166_1==="GB")[0].release_dates[0]?.certification))
+                //console.log((data.credits.crew.filter(x=>x.known_for_department==="Directing")))
             }else{
                 <Alert variant="danger">Error</Alert>
             }
@@ -64,7 +65,7 @@ export const FilmPage = () => {
                 <div className="details-content">
                     <div className="details-content__poster-container mx-5"> 
                         <img className="poster" 
-                            src={`https://image.tmdb.org/t/p/w300/${details.poster_path}`} 
+                            src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} 
                             alt= {details.title}
                         />
                     </div>
@@ -123,13 +124,21 @@ export const FilmPage = () => {
                             <Nav.Link as={NavLink} exact={true} to={{pathname:`/cast/${castName.id}`, state: castName.id }} className="hidden-link" >                
                             <div className="scroll-container__card" key={castName.id}>
                                 <div className="scroll-container__profile">
-                                    <img className="scroll-container__img"
-                                    src={`https://image.tmdb.org/t/p/w500/${castName.profile_path}`}
-                                    alt= {castName.name}
+                                    {castName.profile_path ? (
+                                        <img className="scroll-container__img"
+                                        src={`https://image.tmdb.org/t/p/w500/${castName.profile_path}`}
+                                        alt= {castName.name}
+                                        />
+                                    ) : (
+                                        <img className="scroll-container__img"
+                                        src={placeholder}
+                                        alt= {castName.name}
                                     />
+                                    )}
                                 </div>
                                 <div className="scroll-container__name">
                                     <h6 className="name">{castName.name}</h6>
+                                    <p className="name">{castName.character}</p>
                                 </div>
                             </div>
                            </Nav.Link>

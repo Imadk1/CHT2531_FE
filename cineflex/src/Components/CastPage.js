@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useLocation } from 'react-router';
 import { Alert } from 'react-bootstrap';
 import { ScrollCard } from './ScrollCard';
+import placeholder from '../Assets/Cast-P.png'
 
 export const CastPage = () => {
     const [person, setPerson] = useState([]);
@@ -28,10 +29,17 @@ export const CastPage = () => {
         <div>
             <div className="person-info center mt">
                 <div className="person-info_poster"> 
+                {person.profile_path ? (
                     <img className="poster" 
-                    src={`https://image.tmdb.org/t/p/w300/${person.profile_path}`} 
+                        src={`https://image.tmdb.org/t/p/w300/${person.profile_path}`} 
                         alt= {person.name}
                     />
+                ) : (
+                    <img className="poster" 
+                        src={placeholder} 
+                        alt= {person.name}
+                    />
+                )}
                 </div>
                 <div className="person-info__details center">
                     <h2 className='title'>{person.name}</h2>
