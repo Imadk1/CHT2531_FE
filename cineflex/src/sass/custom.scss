@@ -631,10 +631,15 @@ body{
     &__name {
         color: $off-white;
         margin: 10px;
-        height: 3em;
+        height: 4em;
         overflow: hidden;
         text-align: center;
+
+        p {
+            font-size: 12px;
+        }
     }
+
 }
 
 
