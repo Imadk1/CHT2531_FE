@@ -137,7 +137,7 @@ export const FilmPage = () => {
                                     )}
                                 </div>
                                 <div className="scroll-container__name">
-                                    <h6 className="name">{castName.name}</h6>
+                                    <h6>{castName.name}</h6>
                                     <p>{castName.character}</p>
                                 </div>
                             </div>
