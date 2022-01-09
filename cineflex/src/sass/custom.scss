@@ -157,6 +157,8 @@ body{
     .watch-btn {
         width: 120px;
         border: $dark-blue solid 3px;
+        font-weight: 600;
+
         &:hover {
             background-color: $dark-blue !important;
             color: $off-white !important;
