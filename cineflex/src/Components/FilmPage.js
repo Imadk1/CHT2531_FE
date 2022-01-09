@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useLocation } from 'react-router';
 import { Nav} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faPlay, faHeart, faShare} from '@fortawesome/free-solid-svg-icons'
+import { faStar, faPlay, faHeart, faBookmark} from '@fortawesome/free-solid-svg-icons'
 import {Helmet} from "react-helmet";
 import { ScrollCard } from './ScrollCard';
 import placeholder from '../Assets/Cast-P.png'
@@ -96,7 +96,7 @@ export const FilmPage = () => {
                             <div className="icons center">
                                 <a className="details icon-btn me-2" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon className='play' icon={faPlay} /> Trailer</a>
                                 <a href className="details icon-btn mx-2"><FontAwesomeIcon icon={faHeart} /></a>
-                                <a href className="details icon-btn  mx-2"><FontAwesomeIcon icon={faShare} /> </a>
+                                <a href className="details icon-btn  mx-2"><FontAwesomeIcon icon={faBookmark} /> </a>
                             </div>
                         </div>
                         <div className='watch-icons scroller-container'>  

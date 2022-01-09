@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import placeholder from '../Assets/Placeholder.jpg'
 import {Button, Alert, Nav} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faPlay, faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faPlay, faHeart, faBookmark } from '@fortawesome/free-solid-svg-icons'
 import {NavLink} from 'react-router-dom';
 
 export const MovieCard = ({movieresults}) => {
@@ -48,7 +48,7 @@ export const MovieCard = ({movieresults}) => {
                     <Button className="btn btn-secondary watch-btn" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
                     <div className="icons center">
                         <a href className="icon-btn"><FontAwesomeIcon icon={faHeart} /></a>
-                        <a href className="icon-btn"><FontAwesomeIcon icon={faShare} /> </a>
+                        <a href className="icon-btn"><FontAwesomeIcon icon={faBookmark} /> </a>
                     </div>
                 </div>
             </div>
