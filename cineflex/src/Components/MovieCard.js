@@ -45,7 +45,7 @@ export const MovieCard = ({movieresults}) => {
                 </Nav.Link>
                 <p className="desc mobile-text">{movieresults.release_date}</p>
                 <div className="card-btn">
-                    <Button className="btn btn-secondary watch-btn" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
+                    <Button className="watch-btn" variant="secondary" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
                     <div className="icons center">
                         <a href className="icon-btn"><FontAwesomeIcon icon={faHeart} /></a>
                         <a href className="icon-btn"><FontAwesomeIcon icon={faBookmark} /> </a>
