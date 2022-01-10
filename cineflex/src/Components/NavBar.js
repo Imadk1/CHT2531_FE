@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
-import {Navbar, Nav, Container, Form} from 'react-bootstrap';
+import {Navbar, Nav, Container, Form, NavDropdown} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../Assets/logo-white.svg'
 import {NavLink, useHistory} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch} from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faUser} from '@fortawesome/free-solid-svg-icons';
 
 export const NavBar = () => {
     let [query, setQuery] = useState("")
     const history = useHistory();
+    const dropdown = (<FontAwesomeIcon icon={faUser}>"Account"</FontAwesomeIcon>);
 
     return (
         <header>
@@ -46,6 +47,10 @@ export const NavBar = () => {
                             <Nav.Link className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/now-playing">Now Playing</Nav.Link>
                             <Nav.Link className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/top-rated">Top Rated</Nav.Link>
                             <Nav.Link className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/popular">Most Popular</Nav.Link>
+                            <NavDropdown title={dropdown} id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Watchlist</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Favourites</NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

@@ -95,12 +95,16 @@ body{
 }
 
 .search-bar {
-    width: 55%;
+    width: 50%;
 
     @media (max-width: 600px) {
         width: 100%;
         margin: 1rem 0 !important;
     }
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    left:-5rem;
 }
 
 //Btn

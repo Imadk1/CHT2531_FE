@@ -24,7 +24,7 @@ export const NowPlaying = () => {
         <div className="scroll-container films">
                 <div className='scroll-container__heading'>
                     <h4>Now Playing</h4>
-                    <Link className='scroller-link' to={"/now_playing"}>See More</Link>
+                    <Link className='scroller-link' to={"/now-playing"}>See More</Link>
                 </div>
                 {nowPlaying && (
                    <div className='scroller' >
