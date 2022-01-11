@@ -19,10 +19,10 @@ import {GlobalProvider} from "./context/GlobalState"
 
 function App() {
   return (
-     <GlobalProvider>
+      <GlobalProvider>
         <Router forceRefresh={true}>
          <NavBar />
-            <Switch>
+         <Switch>
             <Route forceRefresh={true} exact path="/">
                <Home />
             </Route>
@@ -37,9 +37,6 @@ function App() {
             </Route>
             <Route exact path="/now-playing">
                <NowPlaying />
-            </Route>
-            <Route exact path="/top-rated">
-               <TopRated />
             </Route>
             <Route exact path="/top-rated">
                <TopRated />
@@ -61,7 +58,7 @@ function App() {
             </Route>
          </Switch>
       </Router>
-     </GlobalProvider>
+   </GlobalProvider>
 
   );
 }

@@ -10,12 +10,16 @@ export const MovieCard = ({movie}) => {
     const [trailer, setTrailer] = useState();
     const {
         addToWatchlist,
-        watchlist
+        watchlist,
+        addToFavourites,
+        favourites,
     } = useContext(GlobalContext)
 
     let storedMovie = watchlist.find((o) => o.id === movie.id);
+    let storedMovieFavourites = favourites.find((o) => o.id === movie.id);
 
-    const btnDisabled = storedMovie ? true : false;
+    const watchlistDisabled = storedMovie ? true : false;
+    const favouritesDisabled = storedMovieFavourites ? true : false;
 
     fetch(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
     .then((res) => res.json())
@@ -56,8 +60,8 @@ export const MovieCard = ({movie}) => {
                 <div className="card-btn">
                     <Button className="watch-btn" variant="primary" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
                     <div className="icons center">
-                        <button className="icon-btn"><FontAwesomeIcon icon={faHeart} /></button>
-                        <button onClick={() => addToWatchlist(movie)} disabled={btnDisabled} className="icon-btn"><FontAwesomeIcon icon={faBookmark} /> </button>
+                        <NavLink exact={true} to="/favourites"> <button onClick={() => addToFavourites(movie)} disabled={favouritesDisabled} className="icon-btn"><FontAwesomeIcon icon={faHeart}/> </button> </NavLink>                                
+                        <NavLink exact={true} to="/watchlist"> <button onClick={() => addToWatchlist(movie)} disabled={watchlistDisabled} className="icon-btn"><FontAwesomeIcon icon={faBookmark}/> </button> </NavLink>
                     </div>
                 </div>
             </div>

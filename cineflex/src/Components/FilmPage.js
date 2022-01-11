@@ -22,12 +22,16 @@ export const FilmPage = () => {
 
     const {
         addToWatchlist,
-        watchlist
+        watchlist,
+        addToFavourites,
+        favourites,
     } = useContext(GlobalContext)
 
     let storedMovie = watchlist.find((o) => o.id === movie.id);
+    let storedMovieFavourites = favourites.find((o) => o.id === movie.id);
 
-    const btnDisabled = storedMovie ? true : false;
+    const watchlistDisabled = storedMovie ? true : false;
+    const favouritesDisabled = storedMovieFavourites ? true : false;
 
     
     useEffect( () => { 
@@ -105,8 +109,8 @@ export const FilmPage = () => {
                         <div className="card-btn">
                             <div className="icons center">
                                 <a className="details icon-btn me-2" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon className='play' icon={faPlay} /> Trailer</a>
-                                <button className="icon-btn"><FontAwesomeIcon icon={faHeart} /></button>
-                                <button onClick={() => addToWatchlist(movie)} disabled={btnDisabled} className="icon-btn"><FontAwesomeIcon icon={faBookmark} /> </button>
+                                <NavLink exact={true} to="/favourites"> <button onClick={() => addToFavourites(movie)} disabled={favouritesDisabled} className="icon-btn"><FontAwesomeIcon icon={faHeart}/> </button> </NavLink>                                
+                        <NavLink exact={true} to="/watchlist"> <button onClick={() => addToWatchlist(movie)} disabled={watchlistDisabled} className="icon-btn"><FontAwesomeIcon icon={faBookmark}/> </button> </NavLink>
                             </div>
                         </div>
                         <div className='watch-icons scroller-container'>  

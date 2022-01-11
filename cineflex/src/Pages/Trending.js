@@ -1,4 +1,4 @@
-/*import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 // eslint-disable-next-line
 import { Alert, Col, Container, Row } from 'react-bootstrap';
 import { MovieCard } from '../Components/MovieCard';
@@ -9,7 +9,7 @@ export const Trending = () => {
     // eslint-disable-next-line
     const [trending, setTrending] = useState([]);
 
-    /*useEffect (()=>{
+    useEffect (()=>{
         fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}&page=${page}&language=en-US&include_adult=false&region=GB`
         )
         .then((res) => res.json())
@@ -37,4 +37,4 @@ export const Trending = () => {
             <CustomPagination setPage={setPage} />
         </Container>
     )
-}*/
+}

@@ -15,7 +15,11 @@ body{
 // Container
 
 .mt {
-    margin-top: 4rem;
+    margin-top: 3rem;
+
+    @media (max-width: 600px) {
+        margin-top: 7rem;
+    }
 }
 
 .search-container {
@@ -66,6 +70,15 @@ body{
     width: 160px;
 }
 
+.nav-container {
+    justify-content: space-evenly !important;
+    padding: 0 1rem;
+}
+
+.navbar-toggler {
+    margin-left: 2rem !important;
+}
+
 .light {
     background-color: $off-white;
 }
@@ -81,6 +94,15 @@ body{
     }
 }
 
+.offcanvas {
+    background-color: $dark-blue !important;
+    max-width: 75%;
+}
+
+.btn-close {
+    color: $off-white !important;
+}
+
 .nav-items {
     font-weight: 600;
 }
@@ -90,21 +112,27 @@ body{
     font-weight: 600;
 }
 
-.c-logo {
-    width: 20%;
+.logo-t-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 600px) {
+        width: 100%;
+    }
+}
+
+.logo-container {
+    width: 100%;
 }
 
 .search-bar {
-    width: 50%;
+    width: 60%;
 
     @media (max-width: 600px) {
         width: 100%;
         margin: 1rem 0 !important;
     }
-}
-
-.navbar-expand-lg .navbar-nav .dropdown-menu {
-    left:-5rem;
 }
 
 //Btn
@@ -180,7 +208,7 @@ body{
             border: none;
 
             &:hover {
-                color: $dark-blue;
+                color: $mint;
             }
 
             &:disabled {
@@ -235,11 +263,6 @@ body{
     color: $off-white;
     box-shadow: 8px 8px 15px rgb(39 57 99 / 30%);
 
-    &:hover {
-        background-color: $mint;
-        color: $dark-grey !important;
-    }
-
     @media (max-width: 600px) {
         flex-direction: row;
         width: 95vw;
@@ -255,6 +278,10 @@ body{
     &:hover {
         color: inherit !important;
     }
+}
+
+.svg-inline--fa {
+    margin: 0 5px;
 }
 
 .poster-container {
@@ -314,6 +341,10 @@ body{
     .title {
         margin: 10px;
         font-size: 1rem;   
+
+        &:hover {
+            color: $orange;
+        }
     }
 
     .mobile-text {
@@ -821,7 +852,7 @@ body{
 .page-title {
     display: flex;
     justify-content: center;
-    padding: 30px 20px 0px;
+    padding: 2.5rem 2rem 0px;
     font-weight: 700;
     color: $dark-blue;
     text-align: center;
