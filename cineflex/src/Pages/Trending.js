@@ -27,9 +27,9 @@ export const Trending = () => {
             <h1 className="page-title">Trending</h1>
             {trending && (
                 <Row>
-                   {trending.map(movieresults => (
-                        <Col className="movie-grid" key={movieresults.id}>
-                            <MovieCard movieresults={movieresults}/>
+                   {trending.map(movie => (
+                        <Col className="movie-grid" key={movie.id}>
+                            <MovieCard movie={movie}/>
                         </Col>
                     ))}
                 </Row>    

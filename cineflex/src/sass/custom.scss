@@ -175,9 +175,16 @@ body{
             color: $orange;
             font-size: 18px;
             padding: 10px;
-    
+            background-color: transparent;
+            -webkit-apperance: unset !important;
+            border: none;
+
             &:hover {
                 color: $dark-blue;
+            }
+
+            &:disabled {
+                color: $light-grey;
             }
 
         }

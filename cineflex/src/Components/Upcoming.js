@@ -28,8 +28,8 @@ export const Upcoming = () => {
                 </div>
                 {upcoming && (
                    <div className='scroller' >
-                       {upcoming.slice(0,15).map(movieresults => (
-                            <ScrollCard movieresults={movieresults} key={movieresults.id}/>
+                       {upcoming.slice(0,15).map(movie => (
+                            <ScrollCard movie={movie} key={movie.id}/>
                         ))}
                    </div>       
                 )}

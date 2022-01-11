@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import { GlobalContext } from '../context/GlobalState';
 import { useLocation } from 'react-router';
 import { Nav} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,7 +11,7 @@ import { Alert } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 export const FilmPage = () => {
-    const [details, setDetails] = useState([]);
+    const [movie, setMovieData] = useState([]);
     const [genres, setGenres] = useState([]);
     const [cast, setCast] = useState([]);
     const [trailer, setTrailer] = useState();
@@ -18,6 +19,15 @@ export const FilmPage = () => {
     const [watch, setWatch] = useState([]);
     const location = useLocation();    
     const [certification, setCertification] = useState([]);
+
+    const {
+        addToWatchlist,
+        watchlist
+    } = useContext(GlobalContext)
+
+    let storedMovie = watchlist.find((o) => o.id === movie.id);
+
+    const btnDisabled = storedMovie ? true : false;
 
     
     useEffect( () => { 
@@ -27,7 +37,7 @@ export const FilmPage = () => {
             if (!data.errors) {
                 console.log(location.state)
                 console.log(data)
-                setDetails(data); 
+                setMovieData(data); 
                 setGenres(data.genres); 
                 setCast(data.credits.cast); 
                 setTrailer(data.videos.results[0]?.key)
@@ -61,24 +71,24 @@ export const FilmPage = () => {
             <Helmet>
                 <style>{'body { background-color: black; }'}</style>
             </Helmet>
-            <div className='details-container mt' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${details.backdrop_path})`}}>
+            <div className='details-container mt' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`}}>
                 <div className="details-content">
                     <div className="details-content__poster-container mx-5"> 
                         <img className="poster" 
-                            src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} 
-                            alt= {details.title}
+                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
+                            alt= {movie.title}
                         />
                     </div>
                     <div className="details-content__info">
                         <div className="header center mb-1">
-                            <h3 className="title">{details.title}</h3>
+                            <h3 className="title">{movie.title}</h3>
                             <div className='film-att center'>
                                 <div className='certification-container center'>
                                     <p className='certification'>{certification}</p>
                                 </div>
                                 <div className="rating center translate-left rounded-pill mx-3">
                                     <FontAwesomeIcon icon={faStar} className="star"/>
-                                    {details.vote_average}
+                                    {movie.vote_average}
                                 </div>
                             </div>
                         </div>
@@ -91,12 +101,12 @@ export const FilmPage = () => {
                             ))}
                             </div>
                         )}
-                        <p className="description">{details.overview}</p>
+                        <p className="description">{movie.overview}</p>
                         <div className="card-btn">
                             <div className="icons center">
                                 <a className="details icon-btn me-2" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon className='play' icon={faPlay} /> Trailer</a>
-                                <a href className="details icon-btn mx-2"><FontAwesomeIcon icon={faHeart} /></a>
-                                <a href className="details icon-btn  mx-2"><FontAwesomeIcon icon={faBookmark} /> </a>
+                                <button className="icon-btn"><FontAwesomeIcon icon={faHeart} /></button>
+                                <button onClick={() => addToWatchlist(movie)} disabled={btnDisabled} className="icon-btn"><FontAwesomeIcon icon={faBookmark} /> </button>
                             </div>
                         </div>
                         <div className='watch-icons scroller-container'>  
@@ -150,8 +160,8 @@ export const FilmPage = () => {
                 <h4>Recommended</h4>
                 {recommendations && (
                    <div className='scroller' >
-                       {recommendations.slice(0,15).map(movieresults => (
-                            <ScrollCard movieresults={movieresults} key={movieresults.id}/>
+                       {recommendations.slice(0,15).map(movie => (
+                            <ScrollCard movie={movie} key={movie.id}/>
                         ))}
                    </div>       
                 )}

@@ -11,7 +11,7 @@ import { faSearch} from '@fortawesome/free-solid-svg-icons';
 export const Search = () => {
     const [page, setPage] = useState (1);
     const [numPage, setNumPage] = useState ();
-    const [movies, setMovies] = useState([]);
+    const [results, setResults] = useState([]);
     let [query, setQuery] = useState("")
     const history = useHistory();
     const location = useLocation();   
@@ -23,7 +23,7 @@ export const Search = () => {
         .then((data) => {
             if (!data.errors) {
                 console.log(data)
-                setMovies(data.results);   
+                setResults(data.results);   
                 setNumPage(data.total_pages)
             }else{
                 <Alert variant="danger">Error</Alert>
@@ -67,11 +67,11 @@ export const Search = () => {
                         </div>
                     </div>
                 </div>
-                 {movies.length > 0 && (
+                 {results.length > 0 && (
                    <Row>
-                       {movies.map(movieresults => (
-                        <Col className="movie-grid" key={movieresults.id}>
-                            <MovieCard movieresults={movieresults}/>
+                       {results.map(movie => (
+                        <Col className="movie-grid" key={movie.id}>
+                            <MovieCard movie={movie}/>
                         </Col>
                         ))}
                    </Row>    

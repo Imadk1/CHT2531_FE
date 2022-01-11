@@ -28,9 +28,9 @@ export const MostPopular = () => {
             <h3 className="page-title">Popular Movies</h3>
             {popular && (
                <Row>
-                   {popular.map(movieresults => (
-                        <Col className="movie-grid" key={movieresults.id}>
-                            <MovieCard movieresults={movieresults}/>
+                   {popular.map(movie => (
+                        <Col className="movie-grid" key={movie.id}>
+                            <MovieCard movie={movie}/>
                         </Col>
                     ))}
                </Row>       

@@ -9,7 +9,7 @@ import { faSearch, faUser} from '@fortawesome/free-solid-svg-icons';
 export const NavBar = () => {
     let [query, setQuery] = useState("")
     const history = useHistory();
-    const dropdown = (<FontAwesomeIcon icon={faUser}>"Account"</FontAwesomeIcon>);
+    const dropdown = (<FontAwesomeIcon icon={faUser}/>);
 
     return (
         <header>
@@ -48,8 +48,8 @@ export const NavBar = () => {
                             <Nav.Link className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/top-rated">Top Rated</Nav.Link>
                             <Nav.Link className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/popular">Most Popular</Nav.Link>
                             <NavDropdown title={dropdown} id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Watchlist</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Favourites</NavDropdown.Item>
+                                <NavDropdown.Item className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/watchlist">Watchlist</NavDropdown.Item>
+                                <NavDropdown.Item className="nav-item me-1" as={NavLink} activeClassName='is-active' to="/favourites">Favourites</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

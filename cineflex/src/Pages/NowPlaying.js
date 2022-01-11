@@ -27,9 +27,9 @@ export const NowPlaying = () => {
             <h3 className="page-title">Now Playing In Theaters</h3>
             {nowPlaying && (
                 <Row>
-                   {nowPlaying.map(movieresults => (
-                        <Col className="movie-grid" key={movieresults.id}>
-                            <MovieCard movieresults={movieresults}/>
+                   {nowPlaying.map(movie => (
+                        <Col className="movie-grid" key={movie.id}>
+                            <MovieCard movie={movie}/>
                         </Col>
                     ))}
                 </Row>    

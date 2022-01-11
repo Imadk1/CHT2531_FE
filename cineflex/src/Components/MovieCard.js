@@ -1,14 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import { GlobalContext } from '../context/GlobalState'
 import placeholder from '../Assets/Placeholder.jpg'
 import {Button, Alert, Nav} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faPlay, faHeart, faBookmark } from '@fortawesome/free-solid-svg-icons'
 import {NavLink} from 'react-router-dom';
 
-export const MovieCard = ({movieresults}) => {
+export const MovieCard = ({movie}) => {
     const [trailer, setTrailer] = useState();
+    const {
+        addToWatchlist,
+        watchlist
+    } = useContext(GlobalContext)
 
-    fetch(`https://api.themoviedb.org/3/movie/${movieresults.id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
+    let storedMovie = watchlist.find((o) => o.id === movie.id);
+
+    const btnDisabled = storedMovie ? true : false;
+
+    fetch(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
     .then((res) => res.json())
     .then((data) => {
         if (!data.errors) {
@@ -23,32 +32,32 @@ export const MovieCard = ({movieresults}) => {
             <div className="poster-container">
                 <span className="rating center translate-middle rounded-pill">
                     <FontAwesomeIcon icon={faStar} className="star"/>
-                    {movieresults.vote_average}
+                    {movie.vote_average}
                 </span>
-            {movieresults.poster_path ? (
-                <Nav.Link as={NavLink} exact={true} to={{pathname:`/film/${movieresults.id}`, state: movieresults.id }} className="hidden-link" >                
+            {movie.poster_path ? (
+                <Nav.Link as={NavLink} exact={true} to={{pathname:`/film/${movie.id}`, state: movie.id }} className="hidden-link" >                
                 <img className="poster" 
-                src={`https://image.tmdb.org/t/p/w300${movieresults.poster_path}`} 
-                alt= {movieresults.title}
+                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} 
+                alt= {movie.title}
                />
                </Nav.Link>
             ) : (
                 <img className="poster"
                  src={placeholder} 
-                 alt= {movieresults.title}
+                 alt= {movie.title}
                 />
             )}
             </div>
             <div className="content-container center">
-                <Nav.Link as={NavLink} exact={true} to={{pathname:`/film/${movieresults.id}`, state: movieresults.id }} className="hidden-link" >                
-                    <h2 className="title mobile-text">{movieresults.title}</h2>
+                <Nav.Link as={NavLink} exact={true} to={{pathname:`/film/${movie.id}`, state: movie.id }} className="hidden-link" >                
+                    <h2 className="title mobile-text">{movie.title}</h2>
                 </Nav.Link>
-                <p className="desc mobile-text">{movieresults.release_date}</p>
+                <p className="desc mobile-text">{movie.release_date}</p>
                 <div className="card-btn">
                     <Button className="watch-btn" variant="primary" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
                     <div className="icons center">
-                        <a href className="icon-btn"><FontAwesomeIcon icon={faHeart} /></a>
-                        <a href className="icon-btn"><FontAwesomeIcon icon={faBookmark} /> </a>
+                        <button className="icon-btn"><FontAwesomeIcon icon={faHeart} /></button>
+                        <button onClick={() => addToWatchlist(movie)} disabled={btnDisabled} className="icon-btn"><FontAwesomeIcon icon={faBookmark} /> </button>
                     </div>
                 </div>
             </div>

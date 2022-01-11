@@ -28,8 +28,8 @@ export const NowPlaying = () => {
                 </div>
                 {nowPlaying && (
                    <div className='scroller' >
-                       {nowPlaying.slice(0,15).map(movieresults => (
-                            <ScrollCard movieresults={movieresults} key={movieresults.id}/>
+                       {nowPlaying.slice(0,15).map(movie => (
+                            <ScrollCard movie={movie} key={movie.id}/>
                         ))}
                    </div>       
                 )}

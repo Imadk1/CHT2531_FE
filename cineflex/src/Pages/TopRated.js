@@ -27,9 +27,9 @@ export const TopRated = () => {
             <h3 className="page-title">Top Rated</h3>
             {TopRated && (
                 <Row>
-                   {TopRated.map(movieresults => (
-                        <Col className="movie-grid" key={movieresults.id}>
-                            <MovieCard movieresults={movieresults}/>
+                   {TopRated.map(movie => (
+                        <Col className="movie-grid" key={movie.id}>
+                            <MovieCard movie={movie}/>
                         </Col>
                     ))}
                 </Row>    

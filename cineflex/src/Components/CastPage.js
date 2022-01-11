@@ -65,8 +65,8 @@ export const CastPage = () => {
                     <h4>Credits</h4>
                     {credits && (
                         <div className='scroller' >
-                            {credits.slice(0,20).map(movieresults => (
-                                <ScrollCard movieresults={movieresults} key={movieresults.id}/>
+                            {credits.slice(0,20).map(movie => (
+                                <ScrollCard movie={movie} key={movie.id}/>
                             ))}
                         </div>       
                     )}
