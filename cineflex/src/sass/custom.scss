@@ -17,7 +17,7 @@ body{
 .mt {
     margin-top: 3rem;
         
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         margin-top: 7rem;
     }
 }
@@ -30,7 +30,7 @@ body{
     margin: 1rem;
     display: none;
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         display: block;
     }
 
@@ -121,7 +121,7 @@ body{
     justify-content: space-between;
     align-items: center;
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         width: 100%;
     }
 }
@@ -133,7 +133,7 @@ body{
 .search-bar {
     width: 60%;
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         width: 100%;
         margin: 1rem 0 !important;
     }
@@ -204,7 +204,7 @@ body{
 
     .remove-btn {
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
             position: absolute;
             right: 10px;
             bottom: 10px;
@@ -267,7 +267,7 @@ body{
     align-items: center;
     margin: 1.5rem auto;
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         margin: 0.5rem auto;
         padding: 0;
     }
@@ -286,7 +286,7 @@ body{
     color: $off-white;
     box-shadow: 8px 8px 15px rgb(39 57 99 / 30%);
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         flex-direction: row;
         width: 95vw;
         padding:10px;
@@ -316,13 +316,13 @@ body{
     align-items: center;
     border-radius: 5px;
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         width: 30%;
         height: auto;
     }
 
     .poster {
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
             width: 110px;
             border-radius: 5px;
         }
@@ -356,7 +356,7 @@ body{
     text-align: center;
     padding: 10px;
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         width: 70%;
         align-items: flex-start !important;
     }
@@ -371,7 +371,7 @@ body{
     }
 
     .mobile-text {
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
             text-align: left;
         }
     }
@@ -516,13 +516,13 @@ body{
         z-index: 1;
         margin-top: 3rem;
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
         }
 
         .poster {
             height: 500px;
 
-            @media (max-width: 600px) {
+            @media (max-width: 650px) {
                 height: 270px !important;
             }
         }
@@ -537,7 +537,7 @@ body{
         width: 550px;
         margin-top: 2rem;
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
             width: 96vw;
             margin: 10px;
             padding: 10px;
@@ -546,7 +546,7 @@ body{
 
         .header {
 
-            @media (max-width: 600px) {
+            @media (max-width: 650px) {
                flex-direction: column-reverse;
             }
 
@@ -555,7 +555,7 @@ body{
                 font-weight: 600;
                 margin: 0;
     
-                @media (max-width: 600px) {
+                @media (max-width: 650px) {
                     margin-right: 1rem 0 0 0;
                     text-align: center;
                 }
@@ -564,7 +564,7 @@ body{
             .film-att {
                 margin-left: 15px;
 
-                @media (max-width: 600px) {
+                @media (max-width: 650px) {
                     margin-bottom: 15px;
                 }
 
@@ -601,7 +601,7 @@ body{
                 color: $dark-grey;
                 width: max-content;
 
-                @media (max-width: 600px) {
+                @media (max-width: 650px) {
                     font-size: 13px;
                 }
             }
@@ -611,7 +611,7 @@ body{
             color: $off-white;
             margin-top: 0.5rem;
 
-            @media (max-width: 600px) {
+            @media (max-width: 650px) {
                 text-align: center;
             }
         } 
@@ -623,7 +623,7 @@ body{
             align-items: flex-start;
             margin-top: 1rem;
 
-            @media (max-width: 600px) {
+            @media (max-width: 650px) {
                 align-items: center;
             }
 
@@ -640,7 +640,7 @@ body{
                 margin-right: 15px;
                 margin-top: 10px;
 
-                @media (max-width: 600px) {
+                @media (max-width: 650px) {
                     width: 55px;
                     margin: 10px;
                 }
@@ -682,7 +682,7 @@ body{
         margin: 10px 10px 10px 0px;
         width: 140px;
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
             width: 120px;
         }
     }
@@ -747,7 +747,7 @@ body{
         box-shadow: 0 0 1px rgba(255, 255, 255, .5);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         width: 92vw;
     }
 }
@@ -765,7 +765,7 @@ body{
         .poster{
             width: 200px;
 
-            @media (max-width: 600px) {
+            @media (max-width: 650px) {
                 width: 150px;
             }
             
@@ -799,7 +799,7 @@ body{
             border-radius: 5px;
             width: 250px;
 
-            @media (max-width: 600px) {
+            @media (max-width: 650px) {
                 width: 200px;
             }
         }
@@ -828,7 +828,7 @@ body{
             padding: 20px;
             background-color:$light-grey ;
 
-            @media (max-width: 600px) {
+            @media (max-width: 650px) {
                 flex-direction: column;
             }
 
@@ -849,7 +849,7 @@ body{
             text-align: center;
             padding: 0 40px;
 
-            @media (max-width: 600px) {
+            @media (max-width: 650px) {
                 text-align: left;
             }
         }
@@ -877,7 +877,7 @@ body{
     left: 0;
     width: 100%;
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         flex-direction: column;
     }
 
@@ -887,7 +887,7 @@ body{
 
     &__logo {
         width: 130px;
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
             margin-bottom: 1.5rem ;
         }
     }
@@ -909,7 +909,7 @@ body{
     color: $dark-blue;
     text-align: center;
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         font-size: 22px;
     }
 }
