@@ -58,7 +58,7 @@ export const MovieCard = ({movie}) => {
                 <Nav.Link as={NavLink} exact={true} to={{pathname:`/film/${movie.id}`, state: movie.id }} className="hidden-link" >                
                     <h2 className="title mobile-text">{movie.title}</h2>
                 </Nav.Link>
-                <p className="desc mobile-text">{movie.release_date.substring(0,4)}</p>
+                <p className="desc mobile-text">{movie.release_date}</p>
                 <div className="card-btn">
                     <Button className="watch-btn" variant="primary" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon icon={faPlay} /> Trailer</Button>
                     <div className="icons center">

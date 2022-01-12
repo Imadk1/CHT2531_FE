@@ -39,6 +39,7 @@ export const FilmPage = () => {
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
+                console.log(data)
                 setMovieData(data); 
                 setGenres(data.genres); 
                 setCast(data.credits.cast); 
