@@ -41,7 +41,7 @@ body{
     input {
         height: 60px;
         text-indent: 5px;
-        border: 2px solid #d6d4d4;
+        border: 2px solid $stone-white;
     
         &:focus{
             box-shadow: none;
@@ -196,13 +196,32 @@ body{
             background-color: $dark-blue !important;
             color: $off-white !important;
         }
-    }    
+    }   
+
+    .remove-btn {
+
+        @media (max-width: 600px) {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+    }
+    
+    .fp {
+        margin:0 10px;
+
+        &:disabled {
+            color: $dark-grey !important;
+            background-color: $orange !important;
+        }
+    }
 
     .icons {
         .icon-btn {
             color: $orange;
             font-size: 18px;
-            padding: 10px;
+            padding: 10px !important;
+            
             background-color: transparent;
             -webkit-apperance: unset !important;
             border: none;
@@ -216,9 +235,9 @@ body{
             }
 
         }
+        
 
-        .details{
-
+        .details {
             border: 3px $orange solid;
             border-radius: 5px;
             padding: 8px 20px;
@@ -376,7 +395,7 @@ body{
     bottom:0;
     left:0;
     right:0;
-    background: #000 !important;;
+    background: $true-black !important;;
     opacity:0.5 !important;
 }
 
@@ -445,7 +464,7 @@ body{
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba($color: #000000, $alpha: 0.6);    
+        background-color: rgba($color: $true-black, $alpha: 0.6);    
     }
 
     &::after {
@@ -527,7 +546,7 @@ body{
                flex-direction: column-reverse;
             }
 
-            .title{
+            .title {
                 color: $off-white;
                 font-weight: 600;
                 margin: 0;
@@ -560,7 +579,7 @@ body{
             }
         }
 
-        .genres-container{
+        .genres-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -568,7 +587,7 @@ body{
             color: $dark-grey;
             margin-top: 10px;
 
-            .genres{
+            .genres {
                 padding: 5px 20px;
                 background-color: $mint;
                 margin: 5px;
@@ -584,7 +603,7 @@ body{
             }
         }
 
-        .description{
+        .description {
             color: $off-white;
             margin-top: 0.5rem;
 
@@ -637,7 +656,7 @@ body{
     flex-direction: column;
     justify-content: center;
     
-    h4{
+    h4 {
         color: $mint;
         font-weight: 600;
         margin: 0;
@@ -796,7 +815,7 @@ body{
             color: $dark-blue;
         }
 
-        .personal{
+        .personal {
             display: flex;
             justify-content: space-evenly;
             align-items: center;
@@ -842,6 +861,29 @@ body{
     margin: 10px 0;
 }
 // Other styling
+
+// Footer
+
+.footer {
+    justify-content: space-evenly !important;
+    background-color: $dark-grey;
+    color: $off-white;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    p {
+        margin: 0 0 0 1rem;
+    }
+
+    &__logo {
+        width: 130px;
+        @media (max-width: 600px) {
+            margin-bottom: 1.5rem ;
+        }
+    }
+}
 
 .center {
     display: flex;

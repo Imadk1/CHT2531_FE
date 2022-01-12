@@ -35,19 +35,16 @@ export const FilmPage = () => {
 
     
     useEffect( () => { 
-        fetch(`https://api.themoviedb.org/3/movie/${location.state}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&append_to_response=release_dates,videos,credits,recommendations&region=GB`)
+        fetch(`https://api.themoviedb.org/3/movie/${location.state}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-USregion=GB&append_to_response=release_dates,videos,credits,recommendations`)
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
-                console.log(location.state)
-                console.log(data)
                 setMovieData(data); 
                 setGenres(data.genres); 
                 setCast(data.credits.cast); 
                 setTrailer(data.videos.results[0]?.key)
                 setRecommendations(data.recommendations.results)
                 setCertification((data.release_dates.results.filter(x=>x.iso_3166_1==="GB")[0].release_dates[0]?.certification))
-                //console.log((data.credits.crew.filter(x=>x.known_for_department==="Directing")))
             }else{
                 <Alert variant="danger">Error</Alert>
             }
@@ -60,7 +57,6 @@ export const FilmPage = () => {
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
-                console.log(data)
                 setWatch(data.results.GB.flatrate)
             }else{
                 <Alert variant="danger">Error</Alert>
@@ -109,8 +105,8 @@ export const FilmPage = () => {
                         <div className="card-btn">
                             <div className="icons center">
                                 <a className="details icon-btn me-2" target="__blank" href={`https://www.youtube.com/watch?v=${trailer}`}><FontAwesomeIcon className='play' icon={faPlay} /> Trailer</a>
-                                <NavLink exact={true} to="/favourites"> <button onClick={() => addToFavourites(movie)} disabled={favouritesDisabled} className="icon-btn"><FontAwesomeIcon icon={faHeart}/> </button> </NavLink>                                
-                        <NavLink exact={true} to="/watchlist"> <button onClick={() => addToWatchlist(movie)} disabled={watchlistDisabled} className="icon-btn"><FontAwesomeIcon icon={faBookmark}/> </button> </NavLink>
+                                <NavLink exact={true} to="/favourites"> <button onClick={() => addToFavourites(movie)} disabled={favouritesDisabled} className="icon-btn details fp"><FontAwesomeIcon icon={faHeart}/> </button> </NavLink>                                
+                                <NavLink exact={true} to="/watchlist"> <button onClick={() => addToWatchlist(movie)} disabled={watchlistDisabled} className="icon-btn details fp"><FontAwesomeIcon icon={faBookmark}/> </button> </NavLink>
                             </div>
                         </div>
                         <div className='watch-icons scroller-container'>  
@@ -171,6 +167,5 @@ export const FilmPage = () => {
                 )}
             </div>
         </div>
-
     )
 }

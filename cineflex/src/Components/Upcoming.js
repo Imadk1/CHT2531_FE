@@ -13,7 +13,8 @@ export const Upcoming = () => {
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
-                setUpcoming(data.results);   
+                setUpcoming(data.results);
+                console.log(data.results)   
             }else{
                 <Alert variant="danger">Error</Alert>
             }

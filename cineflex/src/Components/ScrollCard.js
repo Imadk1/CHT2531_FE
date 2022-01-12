@@ -16,10 +16,12 @@ export const ScrollCard = ({movie}) => {
                />
                </Nav.Link>
             ) : (
+                <Nav.Link as={NavLink} exact={true} to={{pathname:`/film/${movie.id}`, state: movie.id }} className="hidden-link" >                
                 <img className="poster"
                  src={placeholder} 
                  alt= {movie.title}
                 />
+               </Nav.Link>
             )}
             </div>
             <div className="scroll-card__title">

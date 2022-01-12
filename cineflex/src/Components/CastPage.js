@@ -14,8 +14,6 @@ export const CastPage = () => {
         .then((res) => res.json())
         .then((data) => {
             if (!data.errors) {
-                console.log(location.state)
-                console.log(data)
                 setPerson(data); 
                 setCredits(data.movie_credits.cast) 
             }else{
@@ -29,17 +27,17 @@ export const CastPage = () => {
         <div>
             <div className="person-info center mt">
                 <div className="person-info_poster"> 
-                {person.profile_path ? (
-                    <img className="poster" 
-                        src={`https://image.tmdb.org/t/p/w300/${person.profile_path}`} 
-                        alt= {person.name}
-                    />
-                ) : (
-                    <img className="poster" 
-                        src={placeholder} 
-                        alt= {person.name}
-                    />
-                )}
+                    {person.profile_path ? (
+                        <img className="poster" 
+                            src={`https://image.tmdb.org/t/p/w300/${person.profile_path}`} 
+                            alt= {person.name}
+                        />
+                    ) : (
+                        <img className="poster" 
+                            src={placeholder} 
+                            alt= {person.name}
+                        />
+                    )}
                 </div>
                 <div className="person-info__details center">
                     <h2 className='title'>{person.name}</h2>
@@ -62,19 +60,17 @@ export const CastPage = () => {
                         <p>{person.biography}</p>
                     </div>
                     <div className='scroll-container cast films'>
-                    <h4>Credits</h4>
-                    {credits && (
-                        <div className='scroller' >
-                            {credits.slice(0,20).map(movie => (
-                                <ScrollCard movie={movie} key={movie.id}/>
-                            ))}
-                        </div>       
-                    )}
-                </div>
-                </div>
-                
-            </div>
-            
+                        <h4>Credits</h4>
+                        {credits && (
+                            <div className='scroller' >
+                                {credits.slice(0,20).map(movie => (
+                                    <ScrollCard movie={movie} key={movie.id}/>
+                                ))}
+                            </div>       
+                        )}
+                    </div>
+                </div>        
+            </div>           
         </div>
     )
 }

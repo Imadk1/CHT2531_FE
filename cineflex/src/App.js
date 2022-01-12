@@ -12,6 +12,7 @@ import {FilmPage} from './Components/FilmPage';
 import {CastPage} from './Components/CastPage'
 import { WatchList } from './Pages/WatchList';
 import { Favourites } from './Pages/Favourites';
+import { Footer } from './Components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './sass/custom.scss';
 
@@ -58,6 +59,7 @@ function App() {
             </Route>
          </Switch>
       </Router>
+      <Footer />
    </GlobalProvider>
 
   );
