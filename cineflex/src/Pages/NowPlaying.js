@@ -10,7 +10,7 @@ export const NowPlaying = () => {
     const [nowPlaying, setNowPlaying] = useState([]);
 
     useEffect (()=>{
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}&region=GB`
+        fetch(`https://api.themoviedb.org/3/movie/now-playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}&region=GB`
         )
         .then((res) => res.json())
         .then((data) => {
