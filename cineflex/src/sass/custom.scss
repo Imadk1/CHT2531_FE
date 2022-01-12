@@ -860,7 +860,6 @@ body{
     width: 100%;
     margin: 10px 0;
 }
-// Other styling
 
 // Footer
 
@@ -868,6 +867,10 @@ body{
     justify-content: space-evenly !important;
     background-color: $dark-grey;
     color: $off-white;
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
 
     @media (max-width: 600px) {
         flex-direction: column;
@@ -884,6 +887,8 @@ body{
         }
     }
 }
+
+// Other styling
 
 .center {
     display: flex;
