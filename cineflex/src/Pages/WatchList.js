@@ -8,7 +8,7 @@ export const WatchList = ({type}) => {
     const {watchlist} = useContext(GlobalContext)
 
     return (
-        <Container fluid className="mt">
+        <Container fluid className="mt content">
             <h3 className="page-title">Watchlist</h3>
             {watchlist.length > 0 ? (
                 <Row>

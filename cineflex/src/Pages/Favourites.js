@@ -8,7 +8,7 @@ export const Favourites = () => {
     const {favourites} = useContext(GlobalContext)
 
     return (
-        <Container fluid className="mt">
+        <Container fluid className="mt content">
             <h3 className="page-title">Your favourite films</h3>
             {favourites.length > 0 ? (
                 <Row>
