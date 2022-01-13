@@ -13,7 +13,7 @@ import { NavLink } from 'react-router-dom';
 export const FilmPage = () => {
     const [movie, setMovieData] = useState([]);
     const [genres, setGenres] = useState([]);
-    const [cast, setCast] = useState([]);
+    const [castResults, setCast] = useState([]);
     const [trailer, setTrailer] = useState();
     const [recommendations, setRecommendations] = useState([]);
     const [watch, setWatch] = useState([]);
@@ -129,27 +129,27 @@ export const FilmPage = () => {
             </div>
             <div className='scroll-container'>
                 <h4>Cast</h4>
-                {cast && (
+                {castResults && (
                     <div className="scroll-container__content scroller">
-                        {cast.slice(0,22).map(castName => (
-                            <Nav.Link as={NavLink} exact={true} to={{pathname:`/cast/${castName.id}`, state: castName.id }} className="hidden-link" >                
-                            <div className="scroll-container__card" key={castName.id}>
+                        {castResults.slice(0,22).map(cast => (
+                            <Nav.Link as={NavLink} exact={true} to={{pathname:`/cast/${cast.id}-${cast.name}`, state: cast.id }} className="hidden-link" >                
+                            <div className="scroll-container__card" key={cast.id}>
                                 <div className="scroll-container__profile">
-                                    {castName.profile_path ? (
+                                    {cast.profile_path ? (
                                         <img className="scroll-container__img"
-                                        src={`https://image.tmdb.org/t/p/w500/${castName.profile_path}`}
-                                        alt= {castName.name}
+                                        src={`https://image.tmdb.org/t/p/w500/${cast.profile_path}`}
+                                        alt= {cast.name}
                                         />
                                     ) : (
                                         <img className="scroll-container__img"
                                         src={placeholder}
-                                        alt= {castName.name}
+                                        alt= {cast.name}
                                     />
                                     )}
                                 </div>
                                 <div className="scroll-container__name">
-                                    <h6>{castName.name}</h6>
-                                    <p>{castName.character}</p>
+                                    <h6>{cast.name}</h6>
+                                    <p>{cast.character}</p>
                                 </div>
                             </div>
                            </Nav.Link>

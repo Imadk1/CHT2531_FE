@@ -54,7 +54,7 @@ function App() {
             <Route exact path="/film/:id">
                <FilmPage />
             </Route>
-            <Route exact path="/cast/:id">
+            <Route exact path="/cast/:id:name">
                <CastPage />
             </Route>
          </Switch>

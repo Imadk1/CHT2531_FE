@@ -31,7 +31,7 @@ export const Search = () => {
     
     return (
         <div>
-            <Container fluid className="mt">
+            <Container fluid className="mt content">
                 <h3 className='page-title'>Results for '{location.state}'</h3>
                  {results.length > 0 && (
                    <Row>
