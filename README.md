@@ -6,5 +6,4 @@ Student Number : U1859282
 
 This repo is for the CHT2531 Advanced Front End Web Development module. 
 
-Once cloned checkout to the cineflex branch.
-// git checkout cineflex
+Assignment files are in the cineflex branch
