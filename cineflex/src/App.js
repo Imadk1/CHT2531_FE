@@ -8,7 +8,7 @@ import { Upcoming } from './Pages/Upcoming';
 import { NowPlaying } from './Pages/NowPlaying';
 import { TopRated } from './Pages/TopRated';
 import { Search } from './Pages/Search';
-import {FilmPage} from './Components/FilmPage';
+import {FilmPage} from './Pages/FilmPage';
 import {CastPage} from './Components/CastPage'
 import { WatchList } from './Pages/WatchList';
 import { Favourites } from './Pages/Favourites';
